@@ -3,6 +3,7 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
+from conexion import BaseDeDatos
 
 #ESTE ES COMENTARIO DE DIEGO
 #Este es de Dario
@@ -17,8 +18,31 @@ class facultad(QtWidgets.QMainWindow):
         super(facultad, self).__init__()
         self.facultad = Ui_Facultad()
         self.facultad.setupUi(self)
+        self.ActualizarFacultad()
 
         self.facultad.btn_agregar.clicked.connect(lambda:print("ola"))
+    
+    
+    def ActualizarFacultad(self):
+        #self.program.cbo_filterClientes.setCurrentIndex(-1)
+        #global modelTableCLientes
+        headerCliente = ["Codigo","Nombre Facultad","Siglas"]
+        # ---------- Obtener datos de la tabla clientes ----------
+        self.con = BaseDeDatos()
+        DatosCLiente = self.con.getDatosFacultad()
+        filas = len(DatosCLiente)
+        columnas = len(DatosCLiente[0])
+        modelTableCLientes = QStandardItemModel(filas, columnas)
+        modelTableCLientes.setHorizontalHeaderLabels(headerCliente)
+        # ---------- Cargar cliente a la tabla ----------
+        for fila in range(filas):
+            for columna in range(columnas):
+                modelTableCLientes.setItem(fila, columna, QStandardItem(str(DatosCLiente[fila][columna])))
+        self.facultad.tablefacultad.setModel(modelTableCLientes)
+
+        # ---------- Establecer anchos a las columnas (personalizados) ----------
+        for indice, ancho in enumerate((180,800,180),start= 0):
+            self.facultad.tablefacultad.setColumnWidth(indice,ancho)
 
 
 
@@ -27,3 +51,5 @@ if __name__ == '__main__':
     mi_aplicacion = facultad()
     mi_aplicacion.show()
     sys.exit(app.exec_())
+
+
