@@ -16,7 +16,7 @@ class BaseDeDatos:
     def getDatosFacultad(self):
         self.cur.execute(" select idfacultad,nombre,siglas from facultad;")
         DatosCLie = self.cur.fetchall()
-        print( DatosCLie)
+     
         return DatosCLie
     
     

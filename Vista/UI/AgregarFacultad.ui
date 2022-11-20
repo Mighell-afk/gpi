@@ -186,7 +186,7 @@ QDateTimeEdit::down-button {
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="line_cargarProducto">
+     <widget class="QLineEdit" name="txt_nombreFacultad">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -208,7 +208,7 @@ QDateTimeEdit::down-button {
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLineEdit" name="line_cargarProveedor">
+     <widget class="QLineEdit" name="txt_siglas">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -228,7 +228,7 @@ QDateTimeEdit::down-button {
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="btn_cargarCargarProducto">
+  <widget class="QPushButton" name="btn_AnadirFacultad">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -249,8 +249,8 @@ QDateTimeEdit::down-button {
   </widget>
  </widget>
  <tabstops>
-  <tabstop>line_cargarProducto</tabstop>
-  <tabstop>btn_cargarCargarProducto</tabstop>
+  <tabstop>txt_nombreFacultad</tabstop>
+  <tabstop>btn_AnadirFacultad</tabstop>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>

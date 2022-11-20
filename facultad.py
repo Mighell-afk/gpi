@@ -1,9 +1,11 @@
+import imp
 from PySide2.QtGui import *
 from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
 from conexion import BaseDeDatos
+from AnadirFacultad import Addfacu
 
 #ESTE ES COMENTARIO DE DIEGO
 #Este es de Dario
@@ -20,7 +22,7 @@ class facultad(QtWidgets.QMainWindow):
         self.facultad.setupUi(self)
         self.ActualizarFacultad()
 
-        self.facultad.btn_agregar.clicked.connect(lambda:print("ola"))
+        self.facultad.btn_agregar.clicked.connect(lambda:self.AbrirCargaFacu())
     
     
     def ActualizarFacultad(self):
@@ -43,7 +45,11 @@ class facultad(QtWidgets.QMainWindow):
         # ---------- Establecer anchos a las columnas (personalizados) ----------
         for indice, ancho in enumerate((180,800,180),start= 0):
             self.facultad.tablefacultad.setColumnWidth(indice,ancho)
-
+    
+    def AbrirCargaFacu(self):
+        self.Addfacu = Addfacu(self)
+        self.Addfacu.show()
+      
 
 
 if __name__ == '__main__':
