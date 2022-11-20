@@ -1,11 +1,11 @@
 import mysql.connector
 
 con = mysql.connector.connect(
-            host='localhost',
-            user= 'root',
+            host='192.168.100.247',
+            user= 'fabrizzio',
             port= 3306,
-            password = 'tuhermana',
-            database = 'uaamallacurricular'
+            password = 'nousesmilinux',
+            database = 'UAAMallaCurricular'
         )
 cur = con.cursor()
 
