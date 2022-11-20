@@ -20,7 +20,8 @@ class program(QtWidgets.QMainWindow):
         self.program.btn_facultad.clicked.connect(lambda:print("holi facultad"))
 
         
-        
+         #---- Besito a diego
+         #---- diego brun brun for ever in the live
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
