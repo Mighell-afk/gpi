@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>640</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>640</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="StyleSheet">
+   <property name="styleSheet">
+    <string notr="true">/*
+	normal: #1F54A3
+
+	hover: #286FD6
+
+pressed :	#2A3C57
+}
+*/
+
+
+
+/* --------------- LineEdits --------------- */
+
+QLineEdit {
+background-color: transparent;
+border: none;
+font: 63 13pt &quot;Raleway SemiBold&quot;;
+color: #efefef
+}
+
+
+/* --------------- FRAMES --------------- */
+
+/*  Frame izquierda  */
+#frameLeft.QFrame {
+	border: none;
+	border-radius: 15px;
+	background-color:#D01A19;
+	font: 63 13pt &quot;Raleway SemiBold&quot;;
+	color: red;
+}
+ 
+/*  Frame derecha  */
+#frameRight.QFrame {
+	border: none;
+	border-radius: 15px;
+	/*background-color: #1F54A3;*/
+	background-color:qlineargradient(spread:pad, x1:0.607022, y1:0.86, x2:1, y2:1, stop:0.2966 rgba(31, 84, 163, 255), stop:1 rgba(65, 63, 154, 255));
+	font: 63 13pt &quot;Raleway SemiBold&quot;;
+	color: red;
+}
+
+#frameLog.QFrame {
+background-color:  #f8f8f2;
+
+
+}
+/* --------------- ICONOS --------------- */
+
+/*  Frame icono  */
+#lbl_iconLogo.QLabel {
+	background-color:transparent;
+	image: url(:/images/images/images/Logo_vertical.png);
+	background-position: centered;
+	background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</string>
+   </property>
+   <widget class="QFrame" name="frameLeft">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>20</y>
+      <width>330</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="lbl_titulo">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>30</y>
+       <width>281</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* --------------- LABELS --------------- */
+
+QLabel{
+	color: #f8f8f2;
+	font: 20pt &quot;Microsoft YaHei UI Light&quot;;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Login</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_iconLogo">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>120</y>
+       <width>181</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+	background-color:transparent;
+	image: url(:/images/images/images/descarga.png);
+	background-position: centered;
+	background-repeat: no-repeat;
+	
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frameRight">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>10</y>
+      <width>338</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="txtUser">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>200</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="placeholderText">
+      <string>Ingresa tu usuario</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtPass">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>280</y>
+       <width>221</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+     <property name="placeholderText">
+      <string>Ingresa tu contraseña</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_logEnabPass">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>280</y>
+       <width>28</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>28</width>
+       <height>28</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>28</width>
+       <height>28</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* --------------- BOTONES --------------- */
+
+ QPushButton {
+	border: 2px solid #1F54A3;
+	border-radius: 5px;	
+	background-color: #1F54A3;
+	color: #f8f8f2;
+}
+QPushButton:hover {
+	background-color: #286FD6;
+	border: 2px solid #286FD6;
+}
+ QPushButton:pressed {	
+	background-color: #2A3C57;
+	border: 2px solid #2A3C57;
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/icons/images/icons/eye_open_icon.svg</normaloff>:/icons/images/icons/eye_open_icon.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_login">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>360</y>
+       <width>221</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* --------------- LABELS --------------- */
+
+
+
+/* --------------- BOTONES --------------- */
+
+ QPushButton {
+	color: #f8f8f2;
+	font: 15pt &quot;Microsoft YaHei UI Light&quot;;
+	border: 2px solid #286FD6;
+	border-radius: 5px;	
+	background-color: #1F54A3;
+	color: #f8f8f2;
+}
+QPushButton:hover {
+	background-color: #286FD6;
+	border: 2px solid #286FD6;
+}
+ QPushButton:pressed {	
+	border: 2px solid #286FD6;
+
+	background-color: #2A3C57;
+	border: 2px solid #2A3C57;
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>Entrar</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_logEstado">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>430</y>
+       <width>221</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 25 10pt &quot;Microsoft YaHei UI Light&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignHCenter|Qt::AlignTop</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_logCerrar">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>10</y>
+       <width>28</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>28</width>
+       <height>28</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>28</width>
+       <height>28</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* --------------- BOTONES --------------- */
+
+ QPushButton {
+	border: 2px solid #1F54A3;
+	border-radius: 5px;	
+	background-color: #1F54A3;
+	color: #f8f8f2;
+}
+QPushButton:hover {
+	background-color: #286FD6;
+	border: 2px solid #286FD6;
+}
+ QPushButton:pressed {	
+	background-color: #2A3C57;
+	border: 2px solid #2A3C57;
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/icons/images/icons/cil-x.png</normaloff>:/icons/images/icons/cil-x.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>27</width>
+       <height>27</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="Line" name="line">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>290</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_2">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>215</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_user">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>200</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+	background-color:transparent;
+	image: url(:/icons/images/icons/cil-user.png);
+	background-position: centered;
+	background-repeat: no-repeat;
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>280</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+	background-color:transparent;
+	image: url(:/icons/images/icons/cil-lock-locked.png);
+	background-position: centered;
+	background-repeat: no-repeat;
+	
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_user_2">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>50</y>
+       <width>101</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+	background-color:transparent;
+	image: url(:/images/images/images/user.png);
+	background-position: centered;
+	background-repeat: no-repeat;
+	
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
