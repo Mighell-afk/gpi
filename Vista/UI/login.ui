@@ -142,8 +142,8 @@ background-color:  #f8f8f2;
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>30</y>
-       <width>281</width>
+       <y>40</y>
+       <width>201</width>
        <height>61</height>
       </rect>
      </property>
@@ -166,9 +166,9 @@ QLabel{
     <widget class="QLabel" name="lbl_iconLogo">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>120</y>
-       <width>181</width>
+       <width>191</width>
        <height>221</height>
       </rect>
      </property>
@@ -297,8 +297,8 @@ QPushButton:hover {
     <widget class="QPushButton" name="btn_login">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>360</y>
+       <x>60</x>
+       <y>380</y>
        <width>221</width>
        <height>51</height>
       </rect>
@@ -338,10 +338,10 @@ QPushButton:hover {
     <widget class="QLabel" name="lbl_logEstado">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>430</y>
-       <width>221</width>
-       <height>31</height>
+       <x>10</x>
+       <y>320</y>
+       <width>321</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="styleSheet">

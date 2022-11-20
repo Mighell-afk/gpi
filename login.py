@@ -19,6 +19,7 @@ class login(QtWidgets.QMainWindow):
         self.login.setupUi(self)
         self.Animation()
         self.main = program()
+        self.estado = False
         
         #---- CREDENCIALES DEL USUARIO
         self.USUARIO = "Admin" 
@@ -28,7 +29,20 @@ class login(QtWidgets.QMainWindow):
         self.login.btn_logCerrar.clicked.connect(lambda:self.close())
         #---- Boton Login
         self.login.btn_login.clicked.connect(lambda:self.ingresar())
-
+        #---- Boton Mostrar contraseña
+        self.login.btn_logEnabPass.clicked.connect(lambda:self.presionar())
+        
+    def presionar(self):
+            
+            if self.estado:
+                self.login.btn_logEnabPass.setIcon(QIcon(u":/icons/images/icons/eye_open_icon.svg"))
+                self.login.txtPass.setEchoMode(QLineEdit.EchoMode.Password)
+                self.estado = False
+            else:
+                self.login.btn_logEnabPass.setIcon(QIcon(u":/icons/images/icons/eye_close_icon.svg"))
+                self.login.txtPass.setEchoMode(QLineEdit.EchoMode.Normal)
+                self.estado = True
+                 
 
     def ingresar(self):
         User = self.login.txtUser.text()
@@ -38,7 +52,7 @@ class login(QtWidgets.QMainWindow):
             print("logueado correctamente")
             self.main.show()
         else:
-            self.login.lbl_logEstado.setText("credenciales incorrectos")
+            self.login.lbl_logEstado.setText("Nombre de Usuario o Contraseña Incorrectas")
 
 
 
@@ -46,7 +60,7 @@ class login(QtWidgets.QMainWindow):
         self.animation = QPropertyAnimation(self.login.frameLeft, b"geometry")
         self.animation.setDuration(1200)
         self.animation.setStartValue(QRect(309,30, 330, 441))
-        self.animation.setEndValue(QRect(25, 30, 330, 441))
+        self.animation.setEndValue(QRect(100, 30, 330, 441))
         self.animation.setEasingCurve(QEasingCurve.InOutQuart)
         self.animation.start()
 
