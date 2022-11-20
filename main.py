@@ -20,7 +20,7 @@ class program(QtWidgets.QMainWindow):
         self.program.btn_facultad.clicked.connect(lambda:print("holi facultad"))
 
         
-        
+adgfsdfagadfgfadgdfdf
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
