@@ -1,19 +1,23 @@
 import mysql.connector
 
-con = mysql.connector.connect(
+
+class BaseDeDatos:
+
+    def __init__(self):
+        self.con = mysql.connector.connect(
             host='localhost',
             user= 'root',
             port= 3306,
-            password = 'tuhermana',
+            password = '15022001Diego',
             database = 'uaamallacurricular'
         )
-cur = con.cursor()
+        self.cur = self.con.cursor()
 
+    def getDatosFacultad(self):
+        self.cur.execute(" select idfacultad,nombre,siglas from facultad;")
+        DatosCLie = self.cur.fetchall()
+     
+        return DatosCLie
     
-def getDatosCliente():
-    cur.execute(" SELECT * from Facultad")
-    DatosCLie = cur.fetchall()
-    print( DatosCLie)
     
 
-getDatosCliente()
