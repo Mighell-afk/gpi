@@ -8,6 +8,7 @@ import sys
 from Vista.ui_main import Ui_Main
 
 
+
 class program(QtWidgets.QMainWindow):
    
    

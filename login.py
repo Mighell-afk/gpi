@@ -4,11 +4,6 @@ from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
 
-#ESTE ES COMENTARIO DE DIEGO
-#Este es de Dario
-
-
-#Hola mundo
 from Vista.ui_login import Ui_Login
 from main import program
 
@@ -51,9 +46,6 @@ class login(QtWidgets.QMainWindow):
         self.animation.setEndValue(QRect(25, 30, 330, 441))
         self.animation.setEasingCurve(QEasingCurve.InOutQuart)
         self.animation.start()
-
-
-
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
