@@ -8,7 +8,7 @@ class BaseDeDatos:
             host='localhost',
             user= 'root',
             port= 3306,
-            password = '15022001Diego',
+            password = 'tuhermana',
             database = 'uaamallacurricular'
         )
         self.cur = self.con.cursor()
