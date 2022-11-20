@@ -18,6 +18,8 @@ class facultad(QtWidgets.QMainWindow):
         self.facultad = Ui_Facultad()
         self.facultad.setupUi(self)
 
+        self.facultad.btn_agregar.clicked.connect(lambda:print("ola"))
+
 
 
 if __name__ == '__main__':
