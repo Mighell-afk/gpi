@@ -5,6 +5,7 @@ from PySide2 import QtWidgets
 import sys
 
 #ESTE ES COMENTARIO DE DIEGO
+#Este es de Dario
 
 from Vista.ui_login import Ui_Login
 from main import program
