@@ -19,6 +19,7 @@ class login(QtWidgets.QMainWindow):
         self.login.setupUi(self)
         self.Animation()
         self.main = program()
+        self.estado = False
         
         #---- CREDENCIALES DEL USUARIO
         self.USUARIO = "Admin" 
