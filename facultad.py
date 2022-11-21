@@ -30,7 +30,6 @@ class facultad(QtWidgets.QMainWindow):
         # --- Buscar Facultad
         self.facultad.cbo_filterFacultad.setCurrentIndex(-1)
         self.facultad.cbo_filterFacultad.currentIndexChanged.connect(self.FilterTable)
-    #
 
 
     def FilterPerQuery(self):
@@ -60,7 +59,7 @@ class facultad(QtWidgets.QMainWindow):
         self.cur.execute(query)
         DatosCLiente = self.cur.fetchall()
         filas = len(DatosCLiente)
-        columnas = len(DatosCLiente[0])
+        columnas = len(headerCliente)
         modelTableCLientes = QStandardItemModel(filas, columnas)
         modelTableCLientes.setHorizontalHeaderLabels(headerCliente)
         # ---------- Cargar cliente a la tabla ----------

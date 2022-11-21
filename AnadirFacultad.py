@@ -25,13 +25,20 @@ class Addfacu(QtWidgets.QMainWindow):
         self.Addfacu.btn_AnadirFacultad.clicked.connect(lambda:self.AnadirDatos())
 
     def AnadirDatos(self):
-       
+        codFacu = self.Addfacu.txt_codfacultad.text()
         nombrefacu=self.Addfacu.txt_nombreFacultad.text()
         siglas=self.Addfacu.txt_siglas.text()
 
-        self.cur.execute(f"INSERT INTO facultad(nombre,siglas) VALUES('{nombrefacu}','{siglas}') ")
+        self.cur.execute(f"INSERT INTO facultad(idfacultad,nombre,siglas) VALUES({codFacu},'{nombrefacu}','{siglas}') ")
         self.con.commit()
-        self.parent.ActualizarFacultad()
+        self.parent.ActualizarFacultad(self.parent.QueryForActive)
+        self.LimpiarCampos()
+
+
+    def LimpiarCampos(self):
+        self.Addfacu.txt_codfacultad.clear()
+        self.Addfacu.txt_nombreFacultad.clear()
+        self.Addfacu.txt_siglas.clear()
         
 
 
