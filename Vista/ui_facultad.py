@@ -12,7 +12,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-#import resources_rc
+from Vista import resources
 
 class Ui_Facultad(object):
     def setupUi(self, MainWindow):
@@ -36,31 +36,6 @@ class Ui_Facultad(object):
 "	color: #333;\n"
 "	font: 9pt \"Segoe UI\";\n"
 "}\n"
-"\n"
-"/* ----------------- Bg App ----------------- */\n"
-"#bgApp {	\n"
-"	background-color: #f8f8f2;\n"
-"	border: 1px solid black;\n"
-"    color: #44475a;\n"
-"}\n"
-"\n"
-"/* ----------------- Left Menu ----------------- */\n"
-"/* color de la barra lateral */\n"
-"#leftMenuBg {	\n"
-"	background-color: #1F54A3;\n"
-"}\n"
-"\n"
-"#topLogo {\n"
-"	background-color: #1F54A3;\n"
-"	background-image: ;\n"
-"	image: url(:/images/images/images/Logo.png);\n"
-"	background-position: centered;\n"
-"	background-repeat: no-repeat;\n"
-"}\n"
-"\n"
-"#titleLeftApp { font: 63 12pt \"Segoe UI Semibold\"; color: #f8f8f2; }\n"
-"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(121, 172, 247); }\n"
-"\n"
 "/* -----------------  MENUS ----------------- */\n"
 "\n"
 "\n"
@@ -70,8 +45,7 @@ class Ui_Facultad(object):
 "	border: none;\n"
 "	border-left: 22px solid transparent;\n"
 "	background-color: transparent;\n"
-"	text"
-                        "-align: left;\n"
+"	text-align: left;\n"
 "	padding-left: 44px;\n"
 "    color: #f8f8f2;\n"
 "}\n"
@@ -98,68 +72,9 @@ class Ui_Facultad(object):
 "}\n"
 "#bottomMenu .QPushButton:pressed {	\n"
 "	background-color: #2A3C57;\n"
-"	color: rgb(255, 255, 255);\n"
+"	"
+                        "color: rgb(255, 255, 255);\n"
 "}\n"
-"\n"
-"\n"
-"/*la linea fina */\n"
-"#leftMenuFrame{\n"
-"	border-top: 3px solid #286FD6;\n"
-"}\n"
-"\n"
-"\n"
-"/* ----------------- Toggle Button ----------------- */\n"
-"\n"
-"/*boton de las 3 lineas*/\n"
-"\n"
-"#toggleButton {\n"
-"	background-position: left center;\n"
-"    background-repeat: no-repeat;\n"
-""
-                        "	border: none;\n"
-"	border-left: 20px solid transparent;\n"
-"	background-color: #6C99DD;\n"
-"	text-align: left;\n"
-"	padding-left: 44px;\n"
-"	color: #f8f8f2;\n"
-"}\n"
-"#toggleButton:hover {\n"
-"	background-color: #286FD6;\n"
-"}\n"
-"#toggleButton:pressed {	\n"
-"	background-color: #2A3C57;\n"
-"	color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"/* ----------------- Content App ----------------- */\n"
-"\n"
-"\n"
-"/*barra fero de arriba*/\n"
-"#contentTopBg{	background-color: #1F54A3; } \n"
-"/*la linea fina debajo de la linea fero*/\n"
-"#contentBottom{ border-top: 3px solid #6C99DD; }\n"
-"\n"
-"/*El color de la letra*/\n"
-"#titleRightInfo{ color: #f8f8f2; }\n"
-"\n"
-"/*El margen de la letra*/\n"
-"#titleRightInfo { padding-left: 10px; }\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"/* ----------------- Top Buttons ----------------- */\n"
-"/*minimizar, maximizar, cerrar*/\n"
-"#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#rightButtons .QPushButton:hover { background-color: #2"
-                        "86FD6; border-style: solid; border-radius: 4px; }\n"
-"#rightButtons .QPushButton:pressed { background-color: #2A3C57; border-style: solid; border-radius: 4px; }\n"
-"\n"
-"\n"
-"\n"
-"\n"
 "/* ----------------- Bottom Bar ----------------- */\n"
 "/*Status bar (inferior)*/\n"
 "#bottomBar { background-color: #2A3C57 }\n"
@@ -187,8 +102,7 @@ class Ui_Facultad(object):
 "}\n"
 "\n"
 "QHeaderView::section{\n"
-"	background-c"
-                        "olor: white;\n"
+"	background-color: white;\n"
 "	border: none;\n"
 "	border-style: none;\n"
 "}\n"
@@ -196,7 +110,8 @@ class Ui_Facultad(object):
 "/*\n"
 "QTableWidget::horizontalHeader {	\n"
 "	background-color: #6272a4;\n"
-"}\n"
+""
+                        "}\n"
 "*/\n"
 "\n"
 "QHeaderView::section:horizontal\n"
@@ -239,13 +154,13 @@ class Ui_Facultad(object):
 "\n"
 "\n"
 "\n"
-"/* -----------------"
-                        " ScrollBars ----------------- */\n"
+"/* ----------------- ScrollBars ----------------- */\n"
 "/*tama\u00f1o y bordes*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
 "    background: #6272a4;\n"
-"    height: 8px;\n"
+"    "
+                        "height: 8px;\n"
 "    margin: 0px 21px 0 21px;\n"
 "	border-radius: 0px;\n"
 "}\n"
@@ -279,14 +194,14 @@ class Ui_Facultad(object):
 "/*tama\u00f1o y bordes*/\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"  "
-                        "  background-color: #6272a4;\n"
+"    background-color: #6272a4;\n"
 "    width: 8px;\n"
 "    margin: 21px 0 21px 0;\n"
 "	border-radius: 0px;\n"
 " }\n"
 "/*la linea*/\n"
-" QScrollBar::handle:vertical {	\n"
+" QScrollBar::han"
+                        "dle:vertical {	\n"
 "	background: #296FD6;\n"
 "    min-height: 25px;\n"
 "\n"
@@ -318,15 +233,15 @@ class Ui_Facultad(object):
 "	width: 12px;\n"
 "	height: 12px;\n"
 "	border-radius: 9px;\n"
-"   "
-                        " background: #102D57;\n"
+"    background: #102D57;\n"
 "}\n"
 "\n"
 "QRadioButton::indicator:hover {\n"
 "    border: 3px solid #1F54A3;\n"
 "}\n"
 "\n"
-"QRadioButton::indicator:checked {\n"
+"QRadioButton::indicator:checke"
+                        "d {\n"
 "    background: 3px solid #296FD6;\n"
 "	border: 3px solid #296FD6;	\n"
 "}\n"
@@ -358,8 +273,7 @@ class Ui_Facultad(object):
 "	color: white;	\n"
 "	background-color: #1F54A3;\n"
 "	\n"
-"	selection-backgroun"
-                        "d-color: #1F54A3;\n"
+"	selection-background-color: #1F54A3;\n"
 "}\n"
 "\n"
 "\n"
@@ -434,6 +348,10 @@ class Ui_Facultad(object):
 
         self.horizontalLayout_19.addItem(self.horizontalSpacer_10)
 
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(12)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(-1, -1, 0, -1)
         self.btn_agregar = QPushButton(self.pagesContainer)
         self.btn_agregar.setObjectName(u"btn_agregar")
         self.btn_agregar.setMinimumSize(QSize(100, 30))
@@ -453,7 +371,7 @@ class Ui_Facultad(object):
 "	border: 2px solid #2A3C57;\n"
 "}")
 
-        self.horizontalLayout_19.addWidget(self.btn_agregar)
+        self.horizontalLayout_2.addWidget(self.btn_agregar)
 
         self.btn_modificar = QPushButton(self.pagesContainer)
         self.btn_modificar.setObjectName(u"btn_modificar")
@@ -474,7 +392,7 @@ class Ui_Facultad(object):
 "	border: 2px solid #2A3C57;\n"
 "}")
 
-        self.horizontalLayout_19.addWidget(self.btn_modificar)
+        self.horizontalLayout_2.addWidget(self.btn_modificar)
 
         self.btn_eliminar = QPushButton(self.pagesContainer)
         self.btn_eliminar.setObjectName(u"btn_eliminar")
@@ -494,7 +412,7 @@ class Ui_Facultad(object):
 "	border: 2px solid #2A3C57;\n"
 "}")
 
-        self.horizontalLayout_19.addWidget(self.btn_eliminar)
+        self.horizontalLayout_2.addWidget(self.btn_eliminar)
 
         self.btn_baja = QPushButton(self.pagesContainer)
         self.btn_baja.setObjectName(u"btn_baja")
@@ -514,7 +432,10 @@ class Ui_Facultad(object):
 "	border: 2px solid #2A3C57;\n"
 "}")
 
-        self.horizontalLayout_19.addWidget(self.btn_baja)
+        self.horizontalLayout_2.addWidget(self.btn_baja)
+
+
+        self.horizontalLayout_19.addLayout(self.horizontalLayout_2)
 
 
         self.verticalLayout_15.addLayout(self.horizontalLayout_19)
@@ -558,8 +479,13 @@ class Ui_Facultad(object):
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(10, 10, -1, -1)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer)
+
         self.rdb_activo = QRadioButton(self.personas)
         self.rdb_activo.setObjectName(u"rdb_activo")
+       
 
         self.horizontalLayout.addWidget(self.rdb_activo)
 
@@ -570,8 +496,29 @@ class Ui_Facultad(object):
 
         self.rdb_all = QRadioButton(self.personas)
         self.rdb_all.setObjectName(u"rdb_all")
+        self.rdb_all.setChecked(True)
 
         self.horizontalLayout.addWidget(self.rdb_all)
+
+        self.btn_filtrar = QPushButton(self.personas)
+        self.btn_filtrar.setObjectName(u"btn_filtrar")
+        self.btn_filtrar.setMinimumSize(QSize(100, 30))
+        self.btn_filtrar.setStyleSheet(u"#pagesContainer QPushButton {\n"
+"	border: 2px solid #1F54A3;\n"
+"	border-radius: 5px;	\n"
+"	background-color: #1F54A3;\n"
+"	color:white;\n"
+"}\n"
+"#pagesContainer QPushButton:hover {\n"
+"	background-color: #286FD6;\n"
+"	border: 2px solid #286FD6;\n"
+"}\n"
+"#pagesContainer QPushButton:pressed {	\n"
+"	background-color: #2A3C57;\n"
+"	border: 2px solid #2A3C57;\n"
+"}")
+
+        self.horizontalLayout.addWidget(self.btn_filtrar)
 
 
         self.gridLayout_8.addLayout(self.horizontalLayout, 2, 0, 1, 1)
@@ -617,8 +564,6 @@ class Ui_Facultad(object):
         MainWindow.setCentralWidget(self.styleSheet)
         QWidget.setTabOrder(self.cbo_filterFacultad, self.txtBuscarFacultad)
         QWidget.setTabOrder(self.txtBuscarFacultad, self.tablefacultad)
-        QWidget.setTabOrder(self.tablefacultad, self.btn_agregar)
-        QWidget.setTabOrder(self.btn_agregar, self.btn_modificar)
 
         self.retranslateUi(MainWindow)
 
@@ -649,6 +594,7 @@ class Ui_Facultad(object):
         self.rdb_activo.setText(QCoreApplication.translate("MainWindow", u"Mostrar activos", None))
         self.rdb_inactivo.setText(QCoreApplication.translate("MainWindow", u"Mostrar inactivos", None))
         self.rdb_all.setText(QCoreApplication.translate("MainWindow", u"Mostrar todos", None))
+        self.btn_filtrar.setText(QCoreApplication.translate("MainWindow", u"Filtrar", None))
         self.fechahora.setText("")
     # retranslateUi
 

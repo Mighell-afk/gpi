@@ -12,7 +12,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-#import resources_rc
+from Vista import resources
 
 class Ui_AnadirFacultad(object):
     def setupUi(self, CargarProducto):

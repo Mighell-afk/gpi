@@ -39,31 +39,6 @@
 	color: #333;
 	font: 9pt &quot;Segoe UI&quot;;
 }
-
-/* ----------------- Bg App ----------------- */
-#bgApp {	
-	background-color: #f8f8f2;
-	border: 1px solid black;
-    color: #44475a;
-}
-
-/* ----------------- Left Menu ----------------- */
-/* color de la barra lateral */
-#leftMenuBg {	
-	background-color: #1F54A3;
-}
-
-#topLogo {
-	background-color: #1F54A3;
-	background-image: ;
-	image: url(:/images/images/images/Logo.png);
-	background-position: centered;
-	background-repeat: no-repeat;
-}
-
-#titleLeftApp { font: 63 12pt &quot;Segoe UI Semibold&quot;; color: #f8f8f2; }
-#titleLeftDescription { font: 8pt &quot;Segoe UI&quot;; color: rgb(121, 172, 247); }
-
 /* -----------------  MENUS ----------------- */
 
 
@@ -102,64 +77,6 @@
 	background-color: #2A3C57;
 	color: rgb(255, 255, 255);
 }
-
-
-/*la linea fina */
-#leftMenuFrame{
-	border-top: 3px solid #286FD6;
-}
-
-
-/* ----------------- Toggle Button ----------------- */
-
-/*boton de las 3 lineas*/
-
-#toggleButton {
-	background-position: left center;
-    background-repeat: no-repeat;
-	border: none;
-	border-left: 20px solid transparent;
-	background-color: #6C99DD;
-	text-align: left;
-	padding-left: 44px;
-	color: #f8f8f2;
-}
-#toggleButton:hover {
-	background-color: #286FD6;
-}
-#toggleButton:pressed {	
-	background-color: #2A3C57;
-	color: rgb(255, 255, 255);
-}
-
-
-
-/* ----------------- Content App ----------------- */
-
-
-/*barra fero de arriba*/
-#contentTopBg{	background-color: #1F54A3; } 
-/*la linea fina debajo de la linea fero*/
-#contentBottom{ border-top: 3px solid #6C99DD; }
-
-/*El color de la letra*/
-#titleRightInfo{ color: #f8f8f2; }
-
-/*El margen de la letra*/
-#titleRightInfo { padding-left: 10px; }
-
-
-
-
-/* ----------------- Top Buttons ----------------- */
-/*minimizar, maximizar, cerrar*/
-#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }
-#rightButtons .QPushButton:hover { background-color: #286FD6; border-style: solid; border-radius: 4px; }
-#rightButtons .QPushButton:pressed { background-color: #2A3C57; border-style: solid; border-radius: 4px; }
-
-
-
-
 /* ----------------- Bottom Bar ----------------- */
 /*Status bar (inferior)*/
 #bottomBar { background-color: #2A3C57 }
@@ -554,21 +471,29 @@ QComboBox QAbstractItemView {
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="btn_agregar">
-                       <property name="minimumSize">
-                        <size>
-                         <width>100</width>
-                         <height>30</height>
-                        </size>
+                      <layout class="QHBoxLayout" name="horizontalLayout_2">
+                       <property name="spacing">
+                        <number>12</number>
                        </property>
-                       <property name="focusPolicy">
-                        <enum>Qt::TabFocus</enum>
+                       <property name="rightMargin">
+                        <number>0</number>
                        </property>
-                       <property name="toolTip">
-                        <string>Agregar cliente</string>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">#pagesContainer QPushButton {
+                       <item>
+                        <widget class="QPushButton" name="btn_agregar">
+                         <property name="minimumSize">
+                          <size>
+                           <width>100</width>
+                           <height>30</height>
+                          </size>
+                         </property>
+                         <property name="focusPolicy">
+                          <enum>Qt::TabFocus</enum>
+                         </property>
+                         <property name="toolTip">
+                          <string>Agregar cliente</string>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">#pagesContainer QPushButton {
 	border: 2px solid #1F54A3;
 	border-radius: 5px;	
 	background-color: #1F54A3;
@@ -582,28 +507,28 @@ QComboBox QAbstractItemView {
 	background-color: #2A3C57;
 	border: 2px solid #2A3C57;
 }</string>
-                       </property>
-                       <property name="text">
-                        <string>Agregar</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="btn_modificar">
-                       <property name="minimumSize">
-                        <size>
-                         <width>100</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="focusPolicy">
-                        <enum>Qt::TabFocus</enum>
-                       </property>
-                       <property name="toolTip">
-                        <string>Modificar Cliente</string>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">#pagesContainer QPushButton {
+                         </property>
+                         <property name="text">
+                          <string>Agregar</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="btn_modificar">
+                         <property name="minimumSize">
+                          <size>
+                           <width>100</width>
+                           <height>30</height>
+                          </size>
+                         </property>
+                         <property name="focusPolicy">
+                          <enum>Qt::TabFocus</enum>
+                         </property>
+                         <property name="toolTip">
+                          <string>Modificar Cliente</string>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">#pagesContainer QPushButton {
 	border: 2px solid #1F54A3;
 	border-radius: 5px;	
 	background-color: #1F54A3;
@@ -617,22 +542,22 @@ QComboBox QAbstractItemView {
 	background-color: #2A3C57;
 	border: 2px solid #2A3C57;
 }</string>
-                       </property>
-                       <property name="text">
-                        <string>Modificar</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="btn_eliminar">
-                       <property name="minimumSize">
-                        <size>
-                         <width>100</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">#pagesContainer QPushButton {
+                         </property>
+                         <property name="text">
+                          <string>Modificar</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="btn_eliminar">
+                         <property name="minimumSize">
+                          <size>
+                           <width>100</width>
+                           <height>30</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">#pagesContainer QPushButton {
 	border: 2px solid #1F54A3;
 	border-radius: 5px;	
 	background-color: #1F54A3;
@@ -646,22 +571,22 @@ QComboBox QAbstractItemView {
 	background-color: #2A3C57;
 	border: 2px solid #2A3C57;
 }</string>
-                       </property>
-                       <property name="text">
-                        <string>Eliminar</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="btn_baja">
-                       <property name="minimumSize">
-                        <size>
-                         <width>150</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">#pagesContainer QPushButton {
+                         </property>
+                         <property name="text">
+                          <string>Eliminar</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="btn_baja">
+                         <property name="minimumSize">
+                          <size>
+                           <width>150</width>
+                           <height>30</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">#pagesContainer QPushButton {
 	border: 2px solid #1F54A3;
 	border-radius: 5px;	
 	background-color: #1F54A3;
@@ -675,11 +600,13 @@ QComboBox QAbstractItemView {
 	background-color: #2A3C57;
 	border: 2px solid #2A3C57;
 }</string>
-                       </property>
-                       <property name="text">
-                        <string>Activar/Desactivar</string>
-                       </property>
-                      </widget>
+                         </property>
+                         <property name="text">
+                          <string>Activar/Desactivar</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
                      </item>
                     </layout>
                    </item>
@@ -749,6 +676,19 @@ QComboBox QAbstractItemView {
                           <number>10</number>
                          </property>
                          <item>
+                          <spacer name="horizontalSpacer">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item>
                           <widget class="QRadioButton" name="rdb_activo">
                            <property name="text">
                             <string>Mostrar activos</string>
@@ -766,6 +706,35 @@ QComboBox QAbstractItemView {
                           <widget class="QRadioButton" name="rdb_all">
                            <property name="text">
                             <string>Mostrar todos</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="btn_filtrar">
+                           <property name="minimumSize">
+                            <size>
+                             <width>100</width>
+                             <height>30</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">#pagesContainer QPushButton {
+	border: 2px solid #1F54A3;
+	border-radius: 5px;	
+	background-color: #1F54A3;
+	color:white;
+}
+#pagesContainer QPushButton:hover {
+	background-color: #286FD6;
+	border: 2px solid #286FD6;
+}
+#pagesContainer QPushButton:pressed {	
+	background-color: #2A3C57;
+	border: 2px solid #2A3C57;
+}</string>
+                           </property>
+                           <property name="text">
+                            <string>Filtrar</string>
                            </property>
                           </widget>
                          </item>
@@ -846,8 +815,6 @@ QComboBox QAbstractItemView {
   <tabstop>cbo_filterFacultad</tabstop>
   <tabstop>txtBuscarFacultad</tabstop>
   <tabstop>tablefacultad</tabstop>
-  <tabstop>btn_agregar</tabstop>
-  <tabstop>btn_modificar</tabstop>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>
