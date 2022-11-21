@@ -19,6 +19,7 @@ class login(QtWidgets.QMainWindow):
         self.login.setupUi(self)
         self.Animation()
         self.main = program()
+        self.estado = True
         
         #---- CREDENCIALES DEL USUARIO
         self.USUARIO = "Admin" 
@@ -28,7 +29,7 @@ class login(QtWidgets.QMainWindow):
         self.login.btn_logCerrar.clicked.connect(lambda:self.close())
         #---- Boton Login
         self.login.btn_login.clicked.connect(lambda:self.ingresar())
- #---- Boton Mostrar contraseÃ±a
+        #---- Boton Mostrar contraseÃ±a
         self.login.btn_logEnabPass.clicked.connect(lambda:self.presionar())
         
     def presionar(self):
