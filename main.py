@@ -3,7 +3,7 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-
+from facultad import facultad
 
 from Vista.ui_main import Ui_Main
 
@@ -17,8 +17,12 @@ class program(QtWidgets.QMainWindow):
         self.program.setupUi(self)
 
 
-        self.program.btn_facultad.clicked.connect(lambda:print("holi facultad"))
+        self.program.btn_facultad.clicked.connect(lambda:self.OpenFacultad())
 
+    def OpenFacultad(self):
+        self.facu = facultad()
+        self.facu.show()
+        
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
