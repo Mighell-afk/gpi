@@ -6,7 +6,9 @@ import sys
 from conexion import BaseDeDatos
 from AnadirFacultad import Addfacu
 from Vista.ui_facultad import Ui_Facultad
-
+from ModificarFacultad import modificar
+from EliminarFacultad import elifacu
+from EstadoFacultad import estfacu
 
 class facultad(QtWidgets.QMainWindow):
    
@@ -15,6 +17,7 @@ class facultad(QtWidgets.QMainWindow):
         super(facultad, self).__init__()
         self.facultad = Ui_Facultad()
         self.facultad.setupUi(self)
+        
 
 
         self.QueryForAll      = "select idfacultad,nombre,siglas from facultad"
@@ -27,9 +30,31 @@ class facultad(QtWidgets.QMainWindow):
         # --- Botones 
         self.facultad.btn_agregar.clicked.connect(lambda:self.AbrirCargaFacu())
         self.facultad.btn_filtrar.clicked.connect(lambda:self.FilterPerQuery())
+        self.facultad.btn_modificar.clicked.connect(lambda:self.AbrirEditarFacu())
+        self.facultad.btn_eliminar.clicked.connect(lambda:self.AbrirEliminarFacu())
+        self.facultad.btn_baja.clicked.connect(lambda:self.AbrirEstadoFacu())
         # --- Buscar Facultad
         self.facultad.cbo_filterFacultad.setCurrentIndex(-1)
         self.facultad.cbo_filterFacultad.currentIndexChanged.connect(self.FilterTable)
+   
+    
+    def AbrirCargaFacu(self):
+        self.Addfacu = Addfacu(self)
+        self.Addfacu.show()
+        
+    def AbrirEditarFacu(self):
+        self.edifacu = modificar(self)
+        self.edifacu.show()
+
+    def AbrirEliminarFacu(self):
+        self.facu = elifacu(self)
+        self.facu.show()
+    
+    def AbrirEstadoFacu(self):
+        self.estfacu = estfacu(self)
+        self.estfacu.show()
+
+        
 
 
     def FilterPerQuery(self):
@@ -72,10 +97,7 @@ class facultad(QtWidgets.QMainWindow):
             self.facultad.tablefacultad.setColumnWidth(indice,ancho)
     
 
-    def AbrirCargaFacu(self):
-        self.Addfacu = Addfacu(self)
-        self.Addfacu.show()
-        
+    
         
     def FilterTable(self):
         filter_proxy_model = QSortFilterProxyModel()        

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'AgregarFacultad.ui'
+## Form generated from reading UI file 'EliminarFacultad.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -11,14 +11,15 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+
 from Vista import resources
 
-class Ui_AnadirFacultad(object):
+class Ui_EliminarFacultad(object):
     def setupUi(self, CargarFacultad):
         if not CargarFacultad.objectName():
             CargarFacultad.setObjectName(u"CargarFacultad")
         CargarFacultad.setWindowModality(Qt.ApplicationModal)
-        CargarFacultad.resize(500, 312)
+        CargarFacultad.resize(572, 270)
         CargarFacultad.setMinimumSize(QSize(500, 270))
         CargarFacultad.setMaximumSize(QSize(3000, 3000))
         icon = QIcon()
@@ -123,7 +124,7 @@ class Ui_AnadirFacultad(object):
 "")
         self.label = QLabel(CargarFacultad)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(150, 0, 221, 71))
+        self.label.setGeometry(QRect(190, 0, 221, 71))
         font = QFont()
         font.setFamily(u"Microsoft YaHei UI Light")
         font.setPointSize(16)
@@ -134,38 +135,24 @@ class Ui_AnadirFacultad(object):
         self.label.setStyleSheet(u"font: 25 16pt \"Microsoft YaHei UI Light\";")
         self.gridLayoutWidget = QWidget(CargarFacultad)
         self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
-        self.gridLayoutWidget.setGeometry(QRect(20, 80, 441, 121))
+        self.gridLayoutWidget.setGeometry(QRect(70, 80, 441, 71))
         self.gridLayout = QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.label_10 = QLabel(self.gridLayoutWidget)
-        self.label_10.setObjectName(u"label_10")
-        self.label_10.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.btn_buscar = QPushButton(self.gridLayoutWidget)
+        self.btn_buscar.setObjectName(u"btn_buscar")
+        self.btn_buscar.setMinimumSize(QSize(32, 32))
+        icon1 = QIcon()
+        icon1.addFile(u":/icons/images/icons/cil-paper-plane.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_buscar.setIcon(icon1)
 
-        self.gridLayout.addWidget(self.label_10, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.btn_buscar, 0, 2, 1, 1)
 
-        self.txt_nombreFacultad = QLineEdit(self.gridLayoutWidget)
-        self.txt_nombreFacultad.setObjectName(u"txt_nombreFacultad")
-        self.txt_nombreFacultad.setEnabled(True)
-        self.txt_nombreFacultad.setMinimumSize(QSize(0, 0))
-        self.txt_nombreFacultad.setMaximumSize(QSize(295, 16777215))
-        self.txt_nombreFacultad.setClearButtonEnabled(False)
+        self.label_11 = QLabel(self.gridLayoutWidget)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout.addWidget(self.txt_nombreFacultad, 1, 1, 1, 1)
-
-        self.label_8 = QLabel(self.gridLayoutWidget)
-        self.label_8.setObjectName(u"label_8")
-        self.label_8.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout.addWidget(self.label_8, 2, 0, 1, 1)
-
-        self.txt_siglas = QLineEdit(self.gridLayoutWidget)
-        self.txt_siglas.setObjectName(u"txt_siglas")
-        self.txt_siglas.setEnabled(True)
-        self.txt_siglas.setMinimumSize(QSize(0, 0))
-        self.txt_siglas.setMaximumSize(QSize(295, 16777215))
-
-        self.gridLayout.addWidget(self.txt_siglas, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.label_11, 0, 0, 1, 1)
 
         self.txt_codfacultad = QLineEdit(self.gridLayoutWidget)
         self.txt_codfacultad.setObjectName(u"txt_codfacultad")
@@ -176,17 +163,22 @@ class Ui_AnadirFacultad(object):
 
         self.gridLayout.addWidget(self.txt_codfacultad, 0, 1, 1, 1)
 
-        self.label_11 = QLabel(self.gridLayoutWidget)
-        self.label_11.setObjectName(u"label_11")
-        self.label_11.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.lbl_nombrefacultad = QLabel(self.gridLayoutWidget)
+        self.lbl_nombrefacultad.setObjectName(u"lbl_nombrefacultad")
 
-        self.gridLayout.addWidget(self.label_11, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.lbl_nombrefacultad, 1, 1, 1, 1)
 
-        self.btn_AnadirFacultad = QPushButton(CargarFacultad)
-        self.btn_AnadirFacultad.setObjectName(u"btn_AnadirFacultad")
-        self.btn_AnadirFacultad.setGeometry(QRect(170, 220, 141, 41))
-        self.btn_AnadirFacultad.setMinimumSize(QSize(116, 32))
-        #QWidget.setTabOrder(self.txt_codfacultad, self.btn_AnadirFacultad)
+        self.label_12 = QLabel(self.gridLayoutWidget)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.label_12, 1, 0, 1, 1)
+
+        self.btn_eliminar = QPushButton(CargarFacultad)
+        self.btn_eliminar.setObjectName(u"btn_eliminar")
+        self.btn_eliminar.setEnabled(False)
+        self.btn_eliminar.setGeometry(QRect(220, 180, 141, 41))
+        self.btn_eliminar.setMinimumSize(QSize(116, 32))
 
         self.retranslateUi(CargarFacultad)
 
@@ -195,10 +187,11 @@ class Ui_AnadirFacultad(object):
 
     def retranslateUi(self, CargarFacultad):
         CargarFacultad.setWindowTitle(QCoreApplication.translate("CargarFacultad", u"Cargar Producto", None))
-        self.label.setText(QCoreApplication.translate("CargarFacultad", u"Agregar Facultad", None))
-        self.label_10.setText(QCoreApplication.translate("CargarFacultad", u"Nombre Facultad", None))
-        self.label_8.setText(QCoreApplication.translate("CargarFacultad", u"Siglas", None))
+        self.label.setText(QCoreApplication.translate("CargarFacultad", u"Eliminar Facultad", None))
+        self.btn_buscar.setText("")
         self.label_11.setText(QCoreApplication.translate("CargarFacultad", u"Codigo Facultad", None))
-        self.btn_AnadirFacultad.setText(QCoreApplication.translate("CargarFacultad", u"A\u00f1adir", None))
+        self.lbl_nombrefacultad.setText("")
+        self.label_12.setText(QCoreApplication.translate("CargarFacultad", u"Descripcion", None))
+        self.btn_eliminar.setText(QCoreApplication.translate("CargarFacultad", u"Eliminar", None))
     # retranslateUi
 
