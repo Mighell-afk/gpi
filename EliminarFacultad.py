@@ -10,10 +10,11 @@ from Vista.UI_EliminarFacultad import Ui_EliminarFacultad
 class elifacu(QtWidgets.QMainWindow):
    
    
-    def __init__(self):
-        super(elifacu, self).__init__()
+    def __init__(self,parent=None):
+        super().__init__(parent)
         self.elifacu = Ui_EliminarFacultad()
         self.elifacu.setupUi(self)
+        self.parent = parent
         self.elifacu.btn_buscar.clicked.connect(lambda:self.ObtenerDato())
         self.elifacu.btn_eliminar.clicked.connect(lambda:self.EliminarDatos())
 
@@ -25,10 +26,9 @@ class elifacu(QtWidgets.QMainWindow):
         self.connect = BaseDeDatos()
         self.con = self.connect.con
         self.cur = self.con.cursor()
-
         self.cur.execute(self.QueryForAll)
-
         self.con.commit()
+        self.parent.ActualizarFacultad(self.parent.QueryForActive)
         self.elifacu.lbl_nombrefacultad.clear()
         self.elifacu.txt_codfacultad.clear()
         self.elifacu.btn_eliminar.setEnabled(False)

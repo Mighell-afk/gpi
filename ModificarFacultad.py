@@ -13,10 +13,11 @@ from Vista.UI_ModificarFacultad import Ui_ModificarFacultad
 class modificar(QtWidgets.QMainWindow):
    
    
-    def __init__(self):
-        super(modificar, self).__init__()
+    def __init__(self,parent=None):
+        super().__init__(parent)
         self.modificar = Ui_ModificarFacultad()
         self.modificar.setupUi(self)
+        self.parent = parent
 
         self.modificar.btn_buscar.clicked.connect(lambda:self.ObtenerDato())
         self.modificar.btn_modificar.clicked.connect(lambda:self.ActualizarDatos())
@@ -61,6 +62,8 @@ class modificar(QtWidgets.QMainWindow):
         print(DatosCLiente[0][0])
         self.cur.execute(f"update facultad SET nombre = '{nombreFacultad}', siglas = '{siglas}' WHERE idfacultad = '{DatosCLiente[0][0]}'")
         self.con.commit()
+        self.parent.ActualizarFacultad(self.parent.QueryForActive)
+        
 
         self.LimpiarCampos()
 

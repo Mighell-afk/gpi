@@ -133,9 +133,9 @@ QDateTimeEdit::down-button {
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>140</x>
      <y>0</y>
-     <width>201</width>
+     <width>341</width>
      <height>71</height>
     </rect>
    </property>
@@ -152,7 +152,7 @@ QDateTimeEdit::down-button {
     <string notr="true">font: 25 16pt &quot;Microsoft YaHei UI Light&quot;;</string>
    </property>
    <property name="text">
-    <string>EliminarFacultad</string>
+    <string>Activar/Desactivar Facultad</string>
    </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget">
@@ -233,7 +233,7 @@ QDateTimeEdit::down-button {
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="btn_eliminar">
+  <widget class="QPushButton" name="btn_cambiarEstado">
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -252,12 +252,12 @@ QDateTimeEdit::down-button {
     </size>
    </property>
    <property name="text">
-    <string>Eliminar</string>
+    <string>Activar/Desactivar</string>
    </property>
   </widget>
  </widget>
  <tabstops>
-  <tabstop>btn_eliminar</tabstop>
+  <tabstop>btn_cambiarEstado</tabstop>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>
