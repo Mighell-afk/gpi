@@ -11,8 +11,6 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-
-
 from Vista import resources
 
 class Ui_AnadirFacultad(object):

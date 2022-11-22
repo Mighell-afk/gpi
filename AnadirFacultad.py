@@ -4,7 +4,7 @@ from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
 from conexion import BaseDeDatos
-
+from eventos import *
 from Vista.UI_Addfacu import Ui_AnadirFacultad
 
 
@@ -33,6 +33,7 @@ class Addfacu(QtWidgets.QMainWindow):
         self.con.commit()
         self.parent.ActualizarFacultad(self.parent.QueryForActive)
         self.LimpiarCampos()
+        InfoMsg(self,'Informacion','Facultad Cargada con exito')
 
 
     def LimpiarCampos(self):

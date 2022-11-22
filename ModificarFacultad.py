@@ -4,7 +4,7 @@ from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
 from conexion import BaseDeDatos
-
+from eventos import *
 
 
 from Vista.UI_ModificarFacultad import Ui_ModificarFacultad
@@ -63,6 +63,7 @@ class modificar(QtWidgets.QMainWindow):
         self.cur.execute(f"update facultad SET nombre = '{nombreFacultad}', siglas = '{siglas}' WHERE idfacultad = '{DatosCLiente[0][0]}'")
         self.con.commit()
         self.parent.ActualizarFacultad(self.parent.QueryForActive)
+        InfoMsg(self,'Informacion','Facultad actualizada con exito')
         
 
         self.LimpiarCampos()

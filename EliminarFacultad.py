@@ -5,7 +5,7 @@ from PySide2 import QtWidgets
 import sys
 from conexion import BaseDeDatos
 from Vista.UI_EliminarFacultad import Ui_EliminarFacultad
-
+from eventos import *
 
 class elifacu(QtWidgets.QMainWindow):
    
@@ -32,6 +32,7 @@ class elifacu(QtWidgets.QMainWindow):
         self.elifacu.lbl_nombrefacultad.clear()
         self.elifacu.txt_codfacultad.clear()
         self.elifacu.btn_eliminar.setEnabled(False)
+        InfoMsg(self,'Informacion','Facultad eliminada con exito')
 
 
 

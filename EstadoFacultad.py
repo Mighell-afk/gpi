@@ -5,7 +5,7 @@ from PySide2 import QtWidgets
 import sys
 from Vista.ui_estadoFacu import Ui_EstadoFacultad
 from conexion import BaseDeDatos
-
+from eventos import *
 class estfacu(QtWidgets.QMainWindow):
    
    
@@ -50,9 +50,15 @@ class estfacu(QtWidgets.QMainWindow):
         self.cur = self.con.cursor()
         self.cur.execute(f"update facultad SET activo ={NewState} WHERE idfacultad = '{codFacultad}'")
         self.con.commit()
+        self.estfacu.btn_cambiarEstado.setEnabled(False)
         self.estfacu.txt_codfacultad.clear()
         self.estfacu.lbl_nombrefacultad.clear()
         self.parent.ActualizarFacultad(self.parent.QueryForActive)
+        if NewState:
+            ActualState = "Activo"
+        else:
+            ActualState = "Inactivo"
+        InfoMsg(self,'Informacion',f'Facultad se cambio a estado {ActualState} con exito')
 
 
 if __name__ == '__main__':
