@@ -6,6 +6,7 @@ import sys
 from conexion import BaseDeDatos
 from AnadirFacultad import Addfacu
 from Vista.ui_facultad import Ui_Facultad
+from ModificarFacultad import modificar
 
 
 class facultad(QtWidgets.QMainWindow):
@@ -27,9 +28,16 @@ class facultad(QtWidgets.QMainWindow):
         # --- Botones 
         self.facultad.btn_agregar.clicked.connect(lambda:self.AbrirCargaFacu())
         self.facultad.btn_filtrar.clicked.connect(lambda:self.FilterPerQuery())
+        self.facultad.btn_modificar.clicked.connect(lambda:self.AbrirEditarFacu())
         # --- Buscar Facultad
         self.facultad.cbo_filterFacultad.setCurrentIndex(-1)
         self.facultad.cbo_filterFacultad.currentIndexChanged.connect(self.FilterTable)
+   
+   
+    def AbrirEditarFacu(self):
+
+        self.facu = modificar()
+        self.facu.show()
 
 
     def FilterPerQuery(self):
