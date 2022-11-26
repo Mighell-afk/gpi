@@ -3,7 +3,7 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from facultad import facultad
+from z_modules.Facultad.facultad import facultad
 
 from Vista.ui_main import Ui_Main
 
@@ -22,6 +22,7 @@ class program(QtWidgets.QMainWindow):
     def OpenFacultad(self):
         self.facu = facultad()
         self.facu.show()
+        self.close()
         
 
 if __name__ == '__main__':

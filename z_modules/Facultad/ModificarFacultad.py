@@ -3,11 +3,11 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from conexion import BaseDeDatos
-from eventos import *
+from z_modules.conexion import BaseDeDatos
+from z_modules.eventos import *
 
 
-from Vista.UI_ModificarFacultad import Ui_ModificarFacultad
+from Vista.Facultad.UI_ModificarFacultad import Ui_ModificarFacultad
 
 
 class modificar(QtWidgets.QMainWindow):
@@ -28,13 +28,12 @@ class modificar(QtWidgets.QMainWindow):
         codFacultad = self.modificar.txt_codfacultad.text()
         codFacultad = int(codFacultad) 
         print(codFacultad,type(codFacultad))
-        self.QueryForAll      = f"select idfacultad,nombre,siglas from facultad where idfacultad = {codFacultad}"
+        self.QueryForAll = f"select idfacultad,nombre,siglas from facultad where idfacultad = {codFacultad}"
         self.connect = BaseDeDatos()
         self.con = self.connect.con
         self.cur = self.con.cursor()
         self.cur.execute(self.QueryForAll)
         DatosCLiente = self.cur.fetchall()
-        #print(DatosCLiente,type(DatosCLiente))
 
         if(DatosCLiente != []):
             self.modificar.txt_nombreFacultad.setText(DatosCLiente[0][1])

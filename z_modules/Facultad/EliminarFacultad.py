@@ -3,9 +3,9 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from conexion import BaseDeDatos
-from Vista.UI_EliminarFacultad import Ui_EliminarFacultad
-from eventos import *
+from z_modules.conexion import BaseDeDatos
+from Vista.Facultad.UI_EliminarFacultad import Ui_EliminarFacultad
+from z_modules.eventos import *
 
 class elifacu(QtWidgets.QMainWindow):
    
@@ -48,14 +48,9 @@ class elifacu(QtWidgets.QMainWindow):
         self.cur.execute(self.QueryForAll)
         DatosFacu = self.cur.fetchall()
         
-        
-       
-
         if(DatosFacu != []):
             self.elifacu.lbl_nombrefacultad.setText(   DatosFacu[0][1] + " - " + DatosFacu[0][2]      )
             self.elifacu.btn_eliminar.setEnabled(True)
-    
-
         else:
             self.elifacu.lbl_nombrefacultad.setText("No existe dicha facultad" )
             

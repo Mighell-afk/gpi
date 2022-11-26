@@ -3,12 +3,12 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from conexion import BaseDeDatos
-from AnadirFacultad import Addfacu
-from Vista.ui_facultad import Ui_Facultad
-from ModificarFacultad import modificar
-from EliminarFacultad import elifacu
-from EstadoFacultad import estfacu
+from ..conexion import BaseDeDatos
+from z_modules.Facultad.AnadirFacultad import Addfacu
+from Vista.Facultad.ui_facultad import Ui_Facultad
+from z_modules.Facultad.ModificarFacultad import modificar
+from z_modules.Facultad.EliminarFacultad import elifacu
+from z_modules.Facultad.EstadoFacultad import estfacu
 
 class facultad(QtWidgets.QMainWindow):
    
@@ -29,10 +29,11 @@ class facultad(QtWidgets.QMainWindow):
                
         # --- Botones 
         self.facultad.btn_agregar.clicked.connect(lambda:self.AbrirCargaFacu())
-        self.facultad.btn_filtrar.clicked.connect(lambda:self.FilterPerQuery())
         self.facultad.btn_modificar.clicked.connect(lambda:self.AbrirEditarFacu())
         self.facultad.btn_eliminar.clicked.connect(lambda:self.AbrirEliminarFacu())
         self.facultad.btn_baja.clicked.connect(lambda:self.AbrirEstadoFacu())
+        self.facultad.btn_filtrar.clicked.connect(lambda:self.FilterPerQuery())
+
         # --- Buscar Facultad
         self.facultad.cbo_filterFacultad.setCurrentIndex(-1)
         self.facultad.cbo_filterFacultad.currentIndexChanged.connect(self.FilterTable)
@@ -60,15 +61,12 @@ class facultad(QtWidgets.QMainWindow):
     def FilterPerQuery(self):
          # --- RadioButton
         if self.facultad.rdb_all.isChecked() == True:
-            print("All True")
             self.ActualizarFacultad(self.QueryForAll)
 
         elif self.facultad.rdb_activo.isChecked() == True:
-            print("activo True")
             self.ActualizarFacultad(self.QueryForActive)
             
         elif self.facultad.rdb_inactivo.isChecked() == True:
-            print("inactivo True")
             self.ActualizarFacultad(self.QueryForInactive)
 
     

@@ -106,20 +106,7 @@ class Ui_AnadirFacultad(object):
 "QDateTimeEdit::down-button {\n"
 "    border-image: url(:/icons/images/icons/cil-arrow-bottom.png);\n"
 "}\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
+
 "")
         self.label = QLabel(CargarFacultad)
         self.label.setObjectName(u"label")
@@ -186,7 +173,7 @@ class Ui_AnadirFacultad(object):
         self.btn_AnadirFacultad.setObjectName(u"btn_AnadirFacultad")
         self.btn_AnadirFacultad.setGeometry(QRect(170, 220, 141, 41))
         self.btn_AnadirFacultad.setMinimumSize(QSize(116, 32))
-        #QWidget.setTabOrder(self.txt_codfacultad, self.btn_AnadirFacultad)
+        #QWidget.setTabOrder(self.txt_siglas, self.txt_codfacultad)
 
         self.retranslateUi(CargarFacultad)
 
