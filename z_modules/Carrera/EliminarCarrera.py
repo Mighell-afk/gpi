@@ -15,20 +15,34 @@ class eliminarCarrera(QtWidgets.QMainWindow):
         self.eliminarCarrera.setupUi(self)
         self.parent=parent
 
+        self.idfacultad = 0
+
         self.CargarComboBox()
 
         self.eliminarCarrera.btn_buscar.clicked.connect(lambda:self.ObtenerDatos())
 
+        self.eliminarCarrera.cbo_Facultad.currentIndexChanged.connect(lambda:self.ObtenerID())
+
+    def ObtenerID(self):
+        textfacultad = self.eliminarCarrera.cbo_Facultad.currentText()
+        textfacultad = textfacultad.split("-")
+        idfacultad = int(textfacultad[0])
+        self.idfacultad = idfacultad
+
     def CargarComboBox(self):
-        sql = "select * from facultad"
+        sql = "select idfacultad,nombre from facultad"
         self.connect = BaseDeDatos()
         self.con = self.connect.con
         self.cur = self.con.cursor()
         self.cur.execute(sql)
-        listaFacultad = self.cur.fetchall()
-        for facultad in listaFacultad():
-            datosfacultad = str(facultad[0]) + facultad[1]
-            self.eliminarCarrera.cbo_Facultad.addItems(datosfacultad)
+        datosfacultad = self.cur.fetchall()
+        listafacultad = []
+
+        for facultad in datosfacultad:
+            listafacultad.append(f"{facultad[0]} - {facultad[1]}")
+
+        self.eliminarCarrera.cbo_Facultad.addItems(listafacultad)
+        self.eliminarCarrera.cbo_Facultad.setCurrentIndex(-1)
 
     def ObtenerDatos(self):
         codCarrera = self.eliminarCarrera.txt_codcarrera.text()
