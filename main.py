@@ -25,7 +25,6 @@ class program(QtWidgets.QMainWindow):
     def OpenFacultad(self):
         self.facu = facultad()
         self.facu.show()
-        self.close()
     
     def OpenMateria(self):
         self.materia = Materia()
