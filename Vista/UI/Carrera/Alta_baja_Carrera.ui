@@ -29,7 +29,7 @@
    <string>Estado Facultad</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset>
     <normaloff>:/icons/images/icons/cil-pencil.png</normaloff>:/icons/images/icons/cil-pencil.png</iconset>
   </property>
   <property name="styleSheet">
@@ -152,7 +152,7 @@ QDateTimeEdit::down-button {
     <string notr="true">font: 25 16pt &quot;Microsoft YaHei UI Light&quot;;</string>
    </property>
    <property name="text">
-    <string>Activar/Desactivar Facultad</string>
+    <string>aCARSRTDADA</string>
    </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget">
@@ -177,7 +177,7 @@ QDateTimeEdit::down-button {
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="resources.qrc">
+       <iconset>
         <normaloff>:/icons/images/icons/cil-paper-plane.png</normaloff>:/icons/images/icons/cil-paper-plane.png</iconset>
       </property>
      </widget>
