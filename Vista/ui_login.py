@@ -18,11 +18,12 @@ class Ui_Login(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-            MainWindow.setAttribute(Qt.WA_TranslucentBackground)                 
+            MainWindow.setAttribute(Qt.WA_TranslucentBackground)
             MainWindow.setWindowFlag(Qt.FramelessWindowHint)
         MainWindow.resize(640, 500)
         MainWindow.setMinimumSize(QSize(640, 500))
         MainWindow.setMaximumSize(QSize(640, 500))
+        
         self.StyleSheet = QWidget(MainWindow)
         self.StyleSheet.setObjectName(u"StyleSheet")
         self.StyleSheet.setStyleSheet(u"/*\n"
@@ -126,7 +127,7 @@ class Ui_Login(object):
         self.frameLeft.setFrameShadow(QFrame.Raised)
         self.lbl_titulo = QLabel(self.frameLeft)
         self.lbl_titulo.setObjectName(u"lbl_titulo")
-        self.lbl_titulo.setGeometry(QRect(0, 30, 281, 61))
+        self.lbl_titulo.setGeometry(QRect(0, 40, 201, 61))
         self.lbl_titulo.setStyleSheet(u"/* --------------- LABELS --------------- */\n"
 "\n"
 "QLabel{\n"
@@ -137,7 +138,7 @@ class Ui_Login(object):
         self.lbl_titulo.setAlignment(Qt.AlignCenter)
         self.lbl_iconLogo = QLabel(self.frameLeft)
         self.lbl_iconLogo.setObjectName(u"lbl_iconLogo")
-        self.lbl_iconLogo.setGeometry(QRect(20, 120, 181, 221))
+        self.lbl_iconLogo.setGeometry(QRect(10, 120, 191, 221))
         self.lbl_iconLogo.setStyleSheet(u"QLabel {\n"
 "	background-color:transparent;\n"
 "	image: url(:/images/images/images/descarga.png);\n"
@@ -189,7 +190,7 @@ class Ui_Login(object):
         self.btn_logEnabPass.setIconSize(QSize(20, 20))
         self.btn_login = QPushButton(self.frameRight)
         self.btn_login.setObjectName(u"btn_login")
-        self.btn_login.setGeometry(QRect(50, 360, 221, 51))
+        self.btn_login.setGeometry(QRect(60, 380, 221, 51))
         self.btn_login.setStyleSheet(u"/* --------------- LABELS --------------- */\n"
 "\n"
 "\n"
@@ -218,7 +219,7 @@ class Ui_Login(object):
 "")
         self.lbl_logEstado = QLabel(self.frameRight)
         self.lbl_logEstado.setObjectName(u"lbl_logEstado")
-        self.lbl_logEstado.setGeometry(QRect(50, 430, 221, 31))
+        self.lbl_logEstado.setGeometry(QRect(10, 320, 321, 41))
         self.lbl_logEstado.setStyleSheet(u"font: 25 10pt \"Microsoft YaHei UI Light\";")
         self.lbl_logEstado.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
         self.btn_logCerrar = QPushButton(self.frameRight)
