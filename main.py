@@ -3,11 +3,14 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from z_modules.Carrera.AnadirCarrera import AddCarrera
+from z_modules.Carrera.Carrera import carrera
 from z_modules.Facultad.facultad import facultad
 
 from Vista.ui_main import Ui_Main
 from z_modules.Materia.materia import Materia
+
+from z_modules.Carrera.EliminarCarrera import eliminarCarrera
+
 
 class program(QtWidgets.QMainWindow):
    
@@ -21,24 +24,24 @@ class program(QtWidgets.QMainWindow):
         self.program.btn_facultad.clicked.connect(lambda:self.OpenFacultad())
         self.program.btn_materia.clicked.connect(lambda:self.OpenMateria())
         self.program.btn_carrera.clicked.connect(lambda:self.OpenCarrera())
+        self.program.btn_malla.clicked.connect(lambda:self.OpenCarreraEli())
 
 
     def OpenFacultad(self):
         self.facu = facultad()
         self.facu.show()
-        self.close()
     
     def OpenMateria(self):
         self.materia = Materia()
         self.materia.show()  
 
-        
     def OpenCarrera(self):
-        self.carrera = AddCarrera()
-        self.carrera.show()  
+        self.carrera = carrera()
+        self.carrera.show()
 
-    
-
+    def OpenCarreraEli(self):
+        self.carrera = eliminarCarrera()
+        self.carrera.show()
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     mi_aplicacion = program()
