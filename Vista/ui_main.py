@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MenuPrincipal.ui'
+## Form generated from reading UI file 'form_main.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -11,6 +11,7 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+
 from Vista import resources
 
 class Ui_Main(object):
@@ -56,9 +57,14 @@ class Ui_Main(object):
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(50, 20, 471, 31))
         self.label.setAlignment(Qt.AlignCenter)
-        self.btn_facultad = QPushButton(Form)
+        self.gridLayoutWidget = QWidget(Form)
+        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
+        self.gridLayoutWidget.setGeometry(QRect(70, 100, 441, 341))
+        self.gridLayout = QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.btn_facultad = QPushButton(self.gridLayoutWidget)
         self.btn_facultad.setObjectName(u"btn_facultad")
-        self.btn_facultad.setGeometry(QRect(200, 90, 221, 101))
         self.btn_facultad.setMinimumSize(QSize(0, 0))
         self.btn_facultad.setMaximumSize(QSize(3000, 3000))
         font = QFont()
@@ -70,14 +76,50 @@ class Ui_Main(object):
         self.btn_facultad.setFocusPolicy(Qt.StrongFocus)
         self.btn_facultad.setStyleSheet(u"")
 
+        self.gridLayout.addWidget(self.btn_facultad, 0, 0, 1, 1)
+
+        self.btn_materia = QPushButton(self.gridLayoutWidget)
+        self.btn_materia.setObjectName(u"btn_materia")
+        self.btn_materia.setMinimumSize(QSize(0, 0))
+        self.btn_materia.setMaximumSize(QSize(3000, 3000))
+        self.btn_materia.setFont(font)
+        self.btn_materia.setFocusPolicy(Qt.StrongFocus)
+        self.btn_materia.setStyleSheet(u"")
+
+        self.gridLayout.addWidget(self.btn_materia, 0, 1, 1, 1)
+
+        self.btn_carrera = QPushButton(self.gridLayoutWidget)
+        self.btn_carrera.setObjectName(u"btn_carrera")
+        self.btn_carrera.setMinimumSize(QSize(0, 0))
+        self.btn_carrera.setMaximumSize(QSize(3000, 3000))
+        self.btn_carrera.setFont(font)
+        self.btn_carrera.setFocusPolicy(Qt.StrongFocus)
+        self.btn_carrera.setStyleSheet(u"")
+
+        self.gridLayout.addWidget(self.btn_carrera, 1, 0, 1, 1)
+
+        self.btn_malla = QPushButton(self.gridLayoutWidget)
+        self.btn_malla.setObjectName(u"btn_malla")
+        self.btn_malla.setMinimumSize(QSize(0, 0))
+        self.btn_malla.setMaximumSize(QSize(3000, 3000))
+        self.btn_malla.setFont(font)
+        self.btn_malla.setFocusPolicy(Qt.StrongFocus)
+        self.btn_malla.setStyleSheet(u"")
+
+        self.gridLayout.addWidget(self.btn_malla, 1, 1, 1, 1)
+
+
         self.retranslateUi(Form)
 
         QMetaObject.connectSlotsByName(Form)
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Menu", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Gate", None))
         self.label.setText(QCoreApplication.translate("Form", u"Seleccione algun componente de la malla curricular", None))
         self.btn_facultad.setText(QCoreApplication.translate("Form", u"Facultad", None))
+        self.btn_materia.setText(QCoreApplication.translate("Form", u"Materia", None))
+        self.btn_carrera.setText(QCoreApplication.translate("Form", u"Carrera", None))
+        self.btn_malla.setText(QCoreApplication.translate("Form", u"Malla curricular", None))
     # retranslateUi
 
