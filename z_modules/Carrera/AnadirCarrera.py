@@ -29,15 +29,18 @@ class AddCarrera(QtWidgets.QMainWindow):
 
         
     def AnadirDatos(self):
-        if self.ValidarDatos():
-            codFacu = self.Addfacu.txt_codfacultad.text()
-            nombrefacu=self.Addfacu.txt_nombreFacultad.text()
-            siglas=self.Addfacu.txt_siglas.text()
+        #if self.ValidarDatos():
+            codCarrera = self.UI_AgregarCarrera.txt_codCarrera.text()
+            nombreCarrera= self.UI_AgregarCarrera.txt_nombreCarrera.text()
+            facu =self.UI_AgregarCarrera.cboFacultad.currentIndex()
+            self.sql = "SELECT nombre FROM carrera"
+            self.cur.execute(self.sql)
+            facu = self.cur.fetchone()
 
-            self.cur.execute(f"INSERT INTO facultad(idfacultad,nombre,siglas) VALUES({codFacu},'{nombrefacu}','{siglas}') ")
+            self.cur.execute(f"INSERT INTO carrera(idfacultad,idcarrera,nombre) VALUES({codCarrera},'{nombreCarrera}','{facu}') ")
             self.con.commit()
             self.parent.ActualizarFacultad(self.parent.QueryForActive)
-            self.LimpiarCampos()
+            #self.LimpiarCampos()
             InfoMsg(self,'Informacion','Facultad Cargada con exito')
 
             
