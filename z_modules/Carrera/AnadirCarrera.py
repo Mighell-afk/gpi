@@ -1,3 +1,4 @@
+
 from PySide2.QtGui import *
 from PySide2.QtCore import *
 from PySide2.QtWidgets import *
@@ -24,25 +25,26 @@ class AddCarrera(QtWidgets.QMainWindow):
 
         self.UI_AgregarCarrera.btn_AnadirCarrera.clicked.connect(lambda:self.AnadirDatos())
 
-        
-
-
+        codCarrera = self.UI_AgregarCarrera.txt_codCarrera.text()
+        nombreCarrera= self.UI_AgregarCarrera.txt_nombreCarrera.text()
+        self.sql = "SELECT nombre FROM facultad"
+        self.con.cursor()
+        self.cur.execute(self.sql)
+        DatosCarrera = self.cur.fetchall()
+        Data = self.cur.fetchmany()
+        geek_list = ["Geek", "Geeky Geek", "Legend Geek", "Ultra Legend Geek"]
+        self.UI_AgregarCarrera.cboFacultad.addItems(DatosCarrera)
+        print(DatosCarrera)
+        print(type(Data))
         
     def AnadirDatos(self):
-        #if self.ValidarDatos():
-            codCarrera = self.UI_AgregarCarrera.txt_codCarrera.text()
-            nombreCarrera= self.UI_AgregarCarrera.txt_nombreCarrera.text()
-            facu =self.UI_AgregarCarrera.cboFacultad.currentIndex()
-            self.sql = "SELECT nombre FROM carrera"
-            self.cur.execute(self.sql)
-            facu = self.cur.fetchone()
-
-            self.cur.execute(f"INSERT INTO carrera(idfacultad,idcarrera,nombre) VALUES({codCarrera},'{nombreCarrera}','{facu}') ")
+        #if self.ValidarDatos():  
+            self.cur.execute(f"INSERT INTO carrera(idfacultad,idcarrera,nombre) VALUES ( {idfacu},'{codCarrera}','{nombreCarrera}') ")
             self.con.commit()
             self.parent.ActualizarFacultad(self.parent.QueryForActive)
             #self.LimpiarCampos()
             InfoMsg(self,'Informacion','Facultad Cargada con exito')
-
+          
             
 
 
