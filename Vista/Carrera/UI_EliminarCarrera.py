@@ -124,7 +124,7 @@ class Ui_EstadoCarrera(object):
 "")
         self.label = QLabel(EstadoCarrera)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(200, 0, 201, 71))
+        self.label.setGeometry(QRect(0, 0, 572, 71))
         font = QFont()
         font.setFamily(u"Microsoft YaHei UI Light")
         font.setPointSize(16)
@@ -133,9 +133,10 @@ class Ui_EstadoCarrera(object):
         font.setWeight(3)
         self.label.setFont(font)
         self.label.setStyleSheet(u"font: 25 16pt \"Microsoft YaHei UI Light\";")
+        self.label.setAlignment(Qt.AlignCenter)
         self.gridLayoutWidget = QWidget(EstadoCarrera)
         self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
-        self.gridLayoutWidget.setGeometry(QRect(70, 80, 441, 71))
+        self.gridLayoutWidget.setGeometry(QRect(60, 70, 441, 103))
         self.gridLayout = QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
@@ -146,13 +147,18 @@ class Ui_EstadoCarrera(object):
         icon1.addFile(u":/icons/images/icons/cil-paper-plane.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_buscar.setIcon(icon1)
 
-        self.gridLayout.addWidget(self.btn_buscar, 0, 2, 1, 1)
+        self.gridLayout.addWidget(self.btn_buscar, 2, 2, 1, 1)
+
+        self.lbl_nombrefacultad = QLabel(self.gridLayoutWidget)
+        self.lbl_nombrefacultad.setObjectName(u"lbl_nombrefacultad")
+
+        self.gridLayout.addWidget(self.lbl_nombrefacultad, 4, 1, 1, 1)
 
         self.label_11 = QLabel(self.gridLayoutWidget)
         self.label_11.setObjectName(u"label_11")
         self.label_11.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout.addWidget(self.label_11, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_11, 2, 0, 1, 1)
 
         self.txt_codcarrera = QLineEdit(self.gridLayoutWidget)
         self.txt_codcarrera.setObjectName(u"txt_codcarrera")
@@ -161,23 +167,29 @@ class Ui_EstadoCarrera(object):
         self.txt_codcarrera.setMaximumSize(QSize(295, 16777215))
         self.txt_codcarrera.setClearButtonEnabled(False)
 
-        self.gridLayout.addWidget(self.txt_codcarrera, 0, 1, 1, 1)
-
-        self.lbl_nombrefacultad = QLabel(self.gridLayoutWidget)
-        self.lbl_nombrefacultad.setObjectName(u"lbl_nombrefacultad")
-
-        self.gridLayout.addWidget(self.lbl_nombrefacultad, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.txt_codcarrera, 2, 1, 1, 1)
 
         self.label_12 = QLabel(self.gridLayoutWidget)
         self.label_12.setObjectName(u"label_12")
         self.label_12.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout.addWidget(self.label_12, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_12, 4, 0, 1, 1)
+
+        self.label_2 = QLabel(self.gridLayoutWidget)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
+
+        self.cbo_Facultad = QComboBox(self.gridLayoutWidget)
+        self.cbo_Facultad.setObjectName(u"cbo_Facultad")
+
+        self.gridLayout.addWidget(self.cbo_Facultad, 1, 1, 1, 1)
 
         self.btn_eliminar = QPushButton(EstadoCarrera)
         self.btn_eliminar.setObjectName(u"btn_eliminar")
         self.btn_eliminar.setEnabled(False)
-        self.btn_eliminar.setGeometry(QRect(220, 180, 141, 41))
+        self.btn_eliminar.setGeometry(QRect(220, 200, 141, 41))
         self.btn_eliminar.setMinimumSize(QSize(116, 32))
 
         self.retranslateUi(EstadoCarrera)
@@ -189,9 +201,10 @@ class Ui_EstadoCarrera(object):
         EstadoCarrera.setWindowTitle(QCoreApplication.translate("EstadoCarrera", u"Estado Carrera", None))
         self.label.setText(QCoreApplication.translate("EstadoCarrera", u"Eliminar Carrera", None))
         self.btn_buscar.setText("")
-        self.label_11.setText(QCoreApplication.translate("EstadoCarrera", u"Codigo Carrera", None))
         self.lbl_nombrefacultad.setText("")
+        self.label_11.setText(QCoreApplication.translate("EstadoCarrera", u"Codigo Carrera", None))
         self.label_12.setText(QCoreApplication.translate("EstadoCarrera", u"Descripcion", None))
+        self.label_2.setText(QCoreApplication.translate("EstadoCarrera", u"Facultad", None))
         self.btn_eliminar.setText(QCoreApplication.translate("EstadoCarrera", u"Eliminar", None))
     # retranslateUi
 

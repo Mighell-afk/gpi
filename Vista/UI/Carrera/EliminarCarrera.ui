@@ -133,9 +133,9 @@ QDateTimeEdit::down-button {
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>0</x>
      <y>0</y>
-     <width>201</width>
+     <width>572</width>
      <height>71</height>
     </rect>
    </property>
@@ -154,18 +154,21 @@ QDateTimeEdit::down-button {
    <property name="text">
     <string>Eliminar Carrera</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>80</y>
+     <x>60</x>
+     <y>70</y>
      <width>441</width>
-     <height>71</height>
+     <height>103</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="2">
+    <item row="2" column="2">
      <widget class="QPushButton" name="btn_buscar">
       <property name="minimumSize">
        <size>
@@ -182,7 +185,14 @@ QDateTimeEdit::down-button {
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
+    <item row="4" column="1">
+     <widget class="QLabel" name="lbl_nombrefacultad">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
      <widget class="QLabel" name="label_11">
       <property name="text">
        <string>Codigo Carrera</string>
@@ -192,7 +202,7 @@ QDateTimeEdit::down-button {
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
+    <item row="2" column="1">
      <widget class="QLineEdit" name="txt_codcarrera">
       <property name="enabled">
        <bool>true</bool>
@@ -214,14 +224,7 @@ QDateTimeEdit::down-button {
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="lbl_nombrefacultad">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
+    <item row="4" column="0">
      <widget class="QLabel" name="label_12">
       <property name="text">
        <string>Descripcion</string>
@@ -230,6 +233,19 @@ QDateTimeEdit::down-button {
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
       </property>
      </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Facultad</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="cbo_Facultad"/>
     </item>
    </layout>
   </widget>
@@ -240,7 +256,7 @@ QDateTimeEdit::down-button {
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>180</y>
+     <y>200</y>
      <width>141</width>
      <height>41</height>
     </rect>
