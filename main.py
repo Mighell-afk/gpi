@@ -3,6 +3,7 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
+from z_modules.Carrera.AnadirCarrera import AddCarrera
 from z_modules.Facultad.facultad import facultad
 
 from Vista.ui_main import Ui_Main
@@ -19,6 +20,7 @@ class program(QtWidgets.QMainWindow):
 
         self.program.btn_facultad.clicked.connect(lambda:self.OpenFacultad())
         self.program.btn_materia.clicked.connect(lambda:self.OpenMateria())
+        self.program.btn_carrera.clicked.connect(lambda:self.OpenCarrera())
 
 
     def OpenFacultad(self):
@@ -29,6 +31,11 @@ class program(QtWidgets.QMainWindow):
     def OpenMateria(self):
         self.materia = Materia()
         self.materia.show()  
+
+        
+    def OpenCarrera(self):
+        self.carrera = AddCarrera()
+        self.carrera.show()  
 
     
 

@@ -14,7 +14,7 @@ from PySide2.QtWidgets import *
 
 from Vista import resources
 
-class Ui_CargarFacultad(object):
+class Ui_AgregarCarrera(object):
     def setupUi(self, CargarFacultad):
         if not CargarFacultad.objectName():
             CargarFacultad.setObjectName(u"CargarFacultad")
@@ -124,7 +124,7 @@ class Ui_CargarFacultad(object):
 "")
         self.label = QLabel(CargarFacultad)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(150, 0, 221, 71))
+        self.label.setGeometry(QRect(160, 0, 221, 71))
         font = QFont()
         font.setFamily(u"Microsoft YaHei UI Light")
         font.setPointSize(16)
@@ -145,14 +145,14 @@ class Ui_CargarFacultad(object):
 
         self.gridLayout.addWidget(self.label_10, 1, 0, 1, 1)
 
-        self.txt_nombreFacultad = QLineEdit(self.gridLayoutWidget)
-        self.txt_nombreFacultad.setObjectName(u"txt_nombreFacultad")
-        self.txt_nombreFacultad.setEnabled(True)
-        self.txt_nombreFacultad.setMinimumSize(QSize(0, 0))
-        self.txt_nombreFacultad.setMaximumSize(QSize(295, 16777215))
-        self.txt_nombreFacultad.setClearButtonEnabled(False)
+        self.txt_nombreCarrera = QLineEdit(self.gridLayoutWidget)
+        self.txt_nombreCarrera.setObjectName(u"txt_nombreCarrera")
+        self.txt_nombreCarrera.setEnabled(True)
+        self.txt_nombreCarrera.setMinimumSize(QSize(0, 0))
+        self.txt_nombreCarrera.setMaximumSize(QSize(295, 16777215))
+        self.txt_nombreCarrera.setClearButtonEnabled(False)
 
-        self.gridLayout.addWidget(self.txt_nombreFacultad, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.txt_nombreCarrera, 1, 1, 1, 1)
 
         self.label_8 = QLabel(self.gridLayoutWidget)
         self.label_8.setObjectName(u"label_8")
@@ -160,22 +160,14 @@ class Ui_CargarFacultad(object):
 
         self.gridLayout.addWidget(self.label_8, 2, 0, 1, 1)
 
-        self.txt_siglas = QLineEdit(self.gridLayoutWidget)
-        self.txt_siglas.setObjectName(u"txt_siglas")
-        self.txt_siglas.setEnabled(True)
-        self.txt_siglas.setMinimumSize(QSize(0, 0))
-        self.txt_siglas.setMaximumSize(QSize(295, 16777215))
+        self.txt_codCarrera = QLineEdit(self.gridLayoutWidget)
+        self.txt_codCarrera.setObjectName(u"txt_codCarrera")
+        self.txt_codCarrera.setEnabled(True)
+        self.txt_codCarrera.setMinimumSize(QSize(0, 0))
+        self.txt_codCarrera.setMaximumSize(QSize(295, 16777215))
+        self.txt_codCarrera.setClearButtonEnabled(False)
 
-        self.gridLayout.addWidget(self.txt_siglas, 2, 1, 1, 1)
-
-        self.txt_codfacultad = QLineEdit(self.gridLayoutWidget)
-        self.txt_codfacultad.setObjectName(u"txt_codfacultad")
-        self.txt_codfacultad.setEnabled(True)
-        self.txt_codfacultad.setMinimumSize(QSize(0, 0))
-        self.txt_codfacultad.setMaximumSize(QSize(295, 16777215))
-        self.txt_codfacultad.setClearButtonEnabled(False)
-
-        self.gridLayout.addWidget(self.txt_codfacultad, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.txt_codCarrera, 0, 1, 1, 1)
 
         self.label_11 = QLabel(self.gridLayoutWidget)
         self.label_11.setObjectName(u"label_11")
@@ -183,11 +175,16 @@ class Ui_CargarFacultad(object):
 
         self.gridLayout.addWidget(self.label_11, 0, 0, 1, 1)
 
-        self.btn_AnadirFacultad = QPushButton(CargarFacultad)
-        self.btn_AnadirFacultad.setObjectName(u"btn_AnadirFacultad")
-        self.btn_AnadirFacultad.setGeometry(QRect(170, 220, 141, 41))
-        self.btn_AnadirFacultad.setMinimumSize(QSize(116, 32))
-        QWidget.setTabOrder(self.txt_nombreFacultad, self.btn_AnadirFacultad)
+        self.cboFacultad = QComboBox(self.gridLayoutWidget)
+        self.cboFacultad.setObjectName(u"cboFacultad")
+
+        self.gridLayout.addWidget(self.cboFacultad, 2, 1, 1, 1)
+
+        self.btn_AnadirCarrera = QPushButton(CargarFacultad)
+        self.btn_AnadirCarrera.setObjectName(u"btn_AnadirCarrera")
+        self.btn_AnadirCarrera.setGeometry(QRect(170, 220, 141, 41))
+        self.btn_AnadirCarrera.setMinimumSize(QSize(116, 32))
+        QWidget.setTabOrder(self.txt_nombreCarrera, self.btn_AnadirCarrera)
 
         self.retranslateUi(CargarFacultad)
 
@@ -196,10 +193,10 @@ class Ui_CargarFacultad(object):
 
     def retranslateUi(self, CargarFacultad):
         CargarFacultad.setWindowTitle(QCoreApplication.translate("CargarFacultad", u"Cargar Producto", None))
-        self.label.setText(QCoreApplication.translate("CargarFacultad", u"Agregar Facultad", None))
-        self.label_10.setText(QCoreApplication.translate("CargarFacultad", u"Nombre Facultad", None))
-        self.label_8.setText(QCoreApplication.translate("CargarFacultad", u"Siglas", None))
-        self.label_11.setText(QCoreApplication.translate("CargarFacultad", u"Codigo Facultad", None))
-        self.btn_AnadirFacultad.setText(QCoreApplication.translate("CargarFacultad", u"A\u00f1adir", None))
+        self.label.setText(QCoreApplication.translate("CargarFacultad", u"Agregar Carrera", None))
+        self.label_10.setText(QCoreApplication.translate("CargarFacultad", u"Nombre Carrera", None))
+        self.label_8.setText(QCoreApplication.translate("CargarFacultad", u"Facultad", None))
+        self.label_11.setText(QCoreApplication.translate("CargarFacultad", u"Codigo Carrera", None))
+        self.btn_AnadirCarrera.setText(QCoreApplication.translate("CargarFacultad", u"A\u00f1adir", None))
     # retranslateUi
 

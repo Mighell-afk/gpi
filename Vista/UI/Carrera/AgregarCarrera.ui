@@ -29,7 +29,7 @@
    <string>Cargar Producto</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset>
     <normaloff>:/icons/images/icons/cil-pencil.png</normaloff>:/icons/images/icons/cil-pencil.png</iconset>
   </property>
   <property name="styleSheet">
@@ -133,7 +133,7 @@ QDateTimeEdit::down-button {
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>160</x>
      <y>0</y>
      <width>221</width>
      <height>71</height>
@@ -152,7 +152,7 @@ QDateTimeEdit::down-button {
     <string notr="true">font: 25 16pt &quot;Microsoft YaHei UI Light&quot;;</string>
    </property>
    <property name="text">
-    <string>Agregar Facultad</string>
+    <string>Agregar Carrera</string>
    </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget">
@@ -168,7 +168,7 @@ QDateTimeEdit::down-button {
     <item row="1" column="0">
      <widget class="QLabel" name="label_10">
       <property name="text">
-       <string>Nombre Facultad</string>
+       <string>Nombre Carrera</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -176,7 +176,7 @@ QDateTimeEdit::down-button {
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLineEdit" name="txt_nombreFacultad">
+     <widget class="QLineEdit" name="txt_nombreCarrera">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -200,34 +200,15 @@ QDateTimeEdit::down-button {
     <item row="2" column="0">
      <widget class="QLabel" name="label_8">
       <property name="text">
-       <string>Siglas</string>
+       <string>Facultad</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="txt_siglas">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>295</width>
-        <height>16777215</height>
-       </size>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="txt_codfacultad">
+     <widget class="QLineEdit" name="txt_codCarrera">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -251,16 +232,19 @@ QDateTimeEdit::down-button {
     <item row="0" column="0">
      <widget class="QLabel" name="label_11">
       <property name="text">
-       <string>Codigo Facultad</string>
+       <string>Codigo Carrera</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
       </property>
      </widget>
     </item>
+    <item row="2" column="1">
+     <widget class="QComboBox" name="cboFacultad"/>
+    </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="btn_AnadirFacultad">
+  <widget class="QPushButton" name="btn_AnadirCarrera">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -281,8 +265,8 @@ QDateTimeEdit::down-button {
   </widget>
  </widget>
  <tabstops>
-  <tabstop>txt_nombreFacultad</tabstop>
-  <tabstop>btn_AnadirFacultad</tabstop>
+  <tabstop>txt_nombreCarrera</tabstop>
+  <tabstop>btn_AnadirCarrera</tabstop>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>
