@@ -4,7 +4,7 @@ from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
 #from ..conexion import BaseDeDatos
-from Vista.Materia import Ui_Materia
+from Vista.Materia.ui_materia import Ui_Materia
 
 
 class Materia(QtWidgets.QMainWindow):
