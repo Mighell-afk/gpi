@@ -12,6 +12,7 @@ from main import program
 
 class login(QtWidgets.QMainWindow):
    
+    
    
     def __init__(self):
         super(login, self).__init__()
@@ -29,7 +30,7 @@ class login(QtWidgets.QMainWindow):
         self.login.btn_logCerrar.clicked.connect(lambda:self.close())
         #---- Boton Login
         self.login.btn_login.clicked.connect(lambda:self.ingresar())
-        #---- Boton Mostrar contraseÃ±a
+ #---- Boton Mostrar contraseÃ±a
         self.login.btn_logEnabPass.clicked.connect(lambda:self.EstadoVistaPassword())
         
     def EstadoVistaPassword(self):
