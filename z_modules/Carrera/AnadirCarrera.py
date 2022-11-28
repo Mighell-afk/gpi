@@ -20,37 +20,50 @@ class AddCarrera(QtWidgets.QMainWindow):
         self.connect=BaseDeDatos()
         self.con=self.connect.con
         self.cur=self.con.cursor()
-
+        self.CargarComboBox()
 
         self.UI_AgregarCarrera.btn_AnadirCarrera.clicked.connect(lambda:self.AnadirDatos())
 
-        codCarrera = self.UI_AgregarCarrera.txt_codCarrera.text()
-        nombreCarrera= self.UI_AgregarCarrera.txt_nombreCarrera.text()
-        sql = "SELECT idfacultad, nombre FROM facultad"
-        self.cur.execute(sql)
-        DatosFacultad = self.cur.fetchall()
-        listafacultad = []
-        for facultad in DatosFacultad:
-            listafacultad.append(f"{facultad[0]} - {facultad[1]}")
+        # codCarrera = self.UI_AgregarCarrera.txt_codCarrera.text()
+        # nombreCarrera= self.UI_AgregarCarrera.txt_nombreCarrera.text()
+        # sql = "SELECT idfacultad, nombre FROM facultad"
+        # self.cur.execute(sql)
+        # DatosFacultad = self.cur.fetchall()
+        # listafacultad = []
+        # for facultad in DatosFacultad:
+        #     listafacultad.append(f"{facultad[0]} - {facultad[1]}")
 
-        self.UI_AgregarCarrera.cboFacultad.addItems(listafacultad)
-        self.UI_AgregarCarrera.cboFacultad.setCurrentIndex(-1)
-        print(DatosFacultad)
+        # self.UI_AgregarCarrera.cboFacultad.addItems(listafacultad)
+        # self.UI_AgregarCarrera.cboFacultad.setCurrentIndex(-1)
+        # print(DatosFacultad)
     
         
     def AnadirDatos(self):
         if self.ValidarDatos():  
             codCarrera = self.UI_AgregarCarrera.txt_codCarrera.text()
             nombreCarrera= self.UI_AgregarCarrera.txt_nombreCarrera.text()
-            facu = self.UI_AgregarCarrera.cboFacultad.currentIndex()
-            self.cur.execute(f"INSERT INTO carrera(idfacultad,idcarrera,nombre) VALUES ( {facu},'{codCarrera}','{nombreCarrera}') ")
+            facu = self.UI_AgregarCarrera.cboFacultad.currentData()
+            codCarrera = int(codCarrera)
+
+            self.cur.execute(f"INSERT INTO carrera(idfacultad,idcarrera,nombre) VALUES ( {facu},{codCarrera},'{nombreCarrera}') ")
             self.con.commit()
-            self.parent.ActualizarFacultad(self.parent.QueryForActive)
+            self.parent.ActualizarCarrera(self.parent.QueryForActive)
             self.LimpiarCampos()
             InfoMsg(self,'Informacion','Facultad Cargada con exito')
-          
-            
 
+
+    def CargarComboBox(self):
+            sql = "select idfacultad,nombre from facultad"
+            self.connect = BaseDeDatos()
+            self.con = self.connect.con
+            self.cur = self.con.cursor()
+            self.cur.execute(sql)
+            datosfacultad = self.cur.fetchall()
+
+            for facultad in datosfacultad:
+                idfacultad = facultad[0]
+                nombreFacultad = facultad[1]
+                self.UI_AgregarCarrera.cboFacultad.addItem(nombreFacultad,str(idfacultad))
 
 
     def ValidarDatos(self):
@@ -70,9 +83,9 @@ class AddCarrera(QtWidgets.QMainWindow):
 
 
     def LimpiarCampos(self):
-        self.self.UI_AgregarCarrera.txt_codCarrera.clear()
+        self.UI_AgregarCarrera.txt_codCarrera.clear()
         self.UI_AgregarCarrera.txt_nombreCarrera.clear()
-        
+        self.UI_AgregarCarrera.cboFacultad.setCurrentIndex(-1)
 
 
 if __name__ == '__main__':

@@ -7,6 +7,7 @@ from ..conexion import BaseDeDatos
 from z_modules.Carrera.AnadirCarrera import AddCarrera
 from Vista.Carrera.UI_Carrera import Ui_MenuCarrera
 from z_modules.Carrera.EliminarCarrera import eliminarCarrera
+from z_modules.Carrera.ModificarCarrera import modificar
 
 
 class carrera(QtWidgets.QMainWindow):
@@ -19,20 +20,24 @@ class carrera(QtWidgets.QMainWindow):
         
 
 
-        self.QueryForAll      = "select idfacultad,nombre,siglas from facultad"
-        self.QueryForActive   = "select idfacultad,nombre,siglas from facultad where activo = 1"
-        self.QueryForInactive = "select idfacultad,nombre,siglas from facultad where activo = 0"
+        self.QueryForAll      = "select mt.idcarrera, mt.nombre, fa.nombre as facultad from carrera mt inner join facultad fa on mt.idfacultad = fa.idfacultad"
+        self.QueryForActive   = "select mt.idcarrera, mt.nombre, fa.nombre as facultad from carrera mt inner join facultad fa on mt.idfacultad = fa.idfacultad where mt.activo = 1"
+        self.QueryForInactive = "select mt.idcarrera, mt.nombre, fa.nombre as facultad from carrera mt inner join facultad fa on mt.idfacultad = fa.idfacultad where mt.activo = 0"
 
 
-        #self.ActualizarFacultad(self.QueryForActive)
+        self.ActualizarCarrera(self.QueryForActive)
                
         # --- Botones 
         self.carrera.btn_agregar.clicked.connect(lambda:self.AbrirCargaCarrera())
+
+        self.carrera.btn_modificar.clicked.connect(lambda:self.AbrirModificarCarrera())
+
         self.carrera.btn_eliminar.clicked.connect(lambda:self.AbrirEliminarCarrera())
+        self.carrera.btn_filtrar.clicked.connect(lambda:self.FilterPerQuery())
 
         # --- Buscar Facultad
-        #self.carrera.cbo_filterCarrera.setCurrentIndex(-1)
-        #self.carrera.cbo_filterCarrera.currentIndexChanged.connect(self.FilterTable)
+        self.carrera.cbo_filterCarrera.setCurrentIndex(-1)
+        self.carrera.cbo_filterCarrera.currentIndexChanged.connect(self.FilterTable)
    
     
     def AbrirCargaCarrera(self):
@@ -44,25 +49,27 @@ class carrera(QtWidgets.QMainWindow):
         self.facu = eliminarCarrera(self)
         self.facu.show()
          
+    def AbrirModificarCarrera(self):
+        self.facu = modificar(self)
+        self.facu.show()
 
-    '''
+
     def FilterPerQuery(self):
          # --- RadioButton
-        if self.facultad.rdb_all.isChecked() == True:
-            self.ActualizarFacultad(self.QueryForAll)
+        if self.carrera.rdb_all.isChecked() == True:
+            self.ActualizarCarrera(self.QueryForAll)
 
-        elif self.facultad.rdb_activo.isChecked() == True:
-            self.ActualizarFacultad(self.QueryForActive)
+        elif self.carrera.rdb_activo.isChecked() == True:
+            self.ActualizarCarrera(self.QueryForActive)
             
-        elif self.facultad.rdb_inactivo.isChecked() == True:
-            self.ActualizarFacultad(self.QueryForInactive)
+        elif self.carrera.rdb_inactivo.isChecked() == True:
+            self.ActualizarCarrera(self.QueryForInactive)
+    
 
-    '''
-    '''
-    def ActualizarFacultad(self,query):
-        self.facultad.cbo_filterFacultad.setCurrentIndex(-1)
+    def ActualizarCarrera(self,query):
+        self.carrera.cbo_filterCarrera.setCurrentIndex(-1)
         global modelTableCLientes
-        headerCliente = ["Codigo","Nombre Facultad","Siglas"]
+        headerCliente = ["Codigo","Nombre Carrera","Facultad"]
         # ---------- Obtener datos de la tabla clientes ----------
         self.connect = BaseDeDatos()
         self.con = self.connect.con
@@ -77,24 +84,20 @@ class carrera(QtWidgets.QMainWindow):
         for fila in range(filas):
             for columna in range(columnas):
                 modelTableCLientes.setItem(fila, columna, QStandardItem(str(DatosCLiente[fila][columna])))
-        self.facultad.tablefacultad.setModel(modelTableCLientes)
+        self.carrera.tablecarrera.setModel(modelTableCLientes)
         # ---------- Establecer anchos a las columnas (personalizados) ----------
         for indice, ancho in enumerate((180,800,180),start= 0):
-            self.facultad.tablefacultad.setColumnWidth(indice,ancho)
+            self.carrera.tablecarrera.setColumnWidth(indice,ancho)
     
-    '''
     
-    ''' 
     def FilterTable(self):
         filter_proxy_model = QSortFilterProxyModel()        
         filter_proxy_model.setSourceModel(modelTableCLientes)
         filter_proxy_model.setFilterCaseSensitivity(Qt.CaseInsensitive)
-        Filter = self.facultad.cbo_filterFacultad.currentIndex()
+        Filter = self.carrera.cbo_filterCarrera.currentIndex()
         filter_proxy_model.setFilterKeyColumn(Filter)
-        self.facultad.txtBuscarFacultad.textChanged.connect(filter_proxy_model.setFilterFixedString)
-        self.facultad.tablefacultad.setModel(filter_proxy_model) 
-    '''
-
+        self.carrera.txtBuscarCarrera.textChanged.connect(filter_proxy_model.setFilterFixedString)
+        self.carrera.tablecarrera.setModel(filter_proxy_model) 
 
 
 if __name__ == '__main__':

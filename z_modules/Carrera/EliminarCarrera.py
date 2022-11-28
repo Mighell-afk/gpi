@@ -19,15 +19,9 @@ class eliminarCarrera(QtWidgets.QMainWindow):
 
         self.CargarComboBox()
 
-        self.eliminarCarrera.btn_buscar.clicked.connect(lambda:self.ObtenerDatos())
+        self.eliminarCarrera.btn_buscar.clicked.connect(lambda: self.ObtenerDatos())
+        self.eliminarCarrera.btn_eliminar.clicked.connect(lambda: self.EliminarCarrera())
 
-        self.eliminarCarrera.cbo_Facultad.currentIndexChanged.connect(lambda:self.ObtenerID())
-
-    def ObtenerID(self):
-        textfacultad = self.eliminarCarrera.cbo_Facultad.currentText()
-        textfacultad = textfacultad.split("-")
-        idfacultad = int(textfacultad[0])
-        self.idfacultad = idfacultad
 
     def CargarComboBox(self):
         sql = "select idfacultad,nombre from facultad"
@@ -36,19 +30,21 @@ class eliminarCarrera(QtWidgets.QMainWindow):
         self.cur = self.con.cursor()
         self.cur.execute(sql)
         datosfacultad = self.cur.fetchall()
-        listafacultad = []
 
         for facultad in datosfacultad:
-            listafacultad.append(f"{facultad[0]} - {facultad[1]}")
+            idfacultad = facultad[0]
+            nombreFacultad = facultad[1]
+            self.eliminarCarrera.cbo_Facultad.addItem(nombreFacultad,str(idfacultad))
 
-        self.eliminarCarrera.cbo_Facultad.addItems(listafacultad)
         self.eliminarCarrera.cbo_Facultad.setCurrentIndex(-1)
 
     def ObtenerDatos(self):
-        codCarrera = self.eliminarCarrera.txt_codcarrera.text()
-        codCarrera = int(codCarrera)
+        idCarrera = self.eliminarCarrera.txt_codcarrera.text()
+        idCarrera = int(idCarrera)
 
-        self.QueryForAll = f""
+        idFacultad = self.eliminarCarrera.cbo_Facultad.currentData()
+
+        self.QueryForAll = f"select * from carrera where idfacultad = {idFacultad} and idcarrera = {idCarrera}"
         self.connect = BaseDeDatos()
         self.con = self.connect.con
         self.cur = self.con.cursor()
@@ -56,7 +52,25 @@ class eliminarCarrera(QtWidgets.QMainWindow):
         DatosCarrera = self.cur.fetchall()
 
         if(DatosCarrera != []):
-            self.eliminarCarrera.lbl_nombreCarrera.setText(DatosCarrera[0][1] + " - " + DatosCarrera[0][2])
+            self.eliminarCarrera.lbl_nombreCarrera.setText(f"{DatosCarrera[0][1]} - {DatosCarrera[0][2]}")
             self.eliminarCarrera.btn_eliminar.setEnabled(True)
         else:
             self.eliminarCarrera.lbl_nombreCarrera.setText("No existe dicha carrera")
+
+    def EliminarCarrera(self):
+        print("entra")
+        idCarrera = self.eliminarCarrera.txt_codcarrera.text()
+        idCarrera = int(idCarrera)
+        idFacultad = self.eliminarCarrera.cbo_Facultad.currentData()
+        self.QueryForAll = f"delete from carrera where idfacultad = {idFacultad} and idcarrera = {idCarrera}"
+        self.connect = BaseDeDatos()
+        self.con = self.connect.con
+        self.cur = self.con.cursor()
+        self.cur.execute(self.QueryForAll)
+        self.con.commit()
+        self.LimpiarCampos()
+
+    def LimpiarCampos(self):
+        self.eliminarCarrera.lbl_nombreCarrera.clear()
+        self.eliminarCarrera.txt_codcarrera.clear()
+        self.eliminarCarrera.cbo_Facultad.setCurrentIndex(-1)

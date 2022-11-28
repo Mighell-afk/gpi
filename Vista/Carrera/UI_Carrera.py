@@ -462,15 +462,15 @@ class Ui_MenuCarrera(object):
 
         self.gridLayout_13 = QGridLayout()
         self.gridLayout_13.setObjectName(u"gridLayout_13")
-        self.tablefacultad = QTableView(self.personas)
-        self.tablefacultad.setObjectName(u"tablefacultad")
-        self.tablefacultad.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.tablefacultad.setSelectionBehavior(QAbstractItemView.SelectRows)
-        self.tablefacultad.horizontalHeader().setMinimumSectionSize(80)
-        self.tablefacultad.horizontalHeader().setDefaultSectionSize(150)
-        self.tablefacultad.horizontalHeader().setStretchLastSection(True)
+        self.tablecarrera = QTableView(self.personas)
+        self.tablecarrera.setObjectName(u"tablecarrera")
+        self.tablecarrera.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tablecarrera.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.tablecarrera.horizontalHeader().setMinimumSectionSize(80)
+        self.tablecarrera.horizontalHeader().setDefaultSectionSize(150)
+        self.tablecarrera.horizontalHeader().setStretchLastSection(True)
 
-        self.gridLayout_13.addWidget(self.tablefacultad, 0, 0, 1, 1)
+        self.gridLayout_13.addWidget(self.tablecarrera, 0, 0, 1, 1)
 
 
         self.gridLayout_8.addLayout(self.gridLayout_13, 1, 0, 1, 1)
@@ -560,7 +560,7 @@ class Ui_MenuCarrera(object):
 
         MainWindow.setCentralWidget(self.styleSheet)
         QWidget.setTabOrder(self.cbo_filterCarrera, self.txtBuscarCarrera)
-        QWidget.setTabOrder(self.txtBuscarCarrera, self.tablefacultad)
+        QWidget.setTabOrder(self.txtBuscarCarrera, self.tablecarrera)
 
         self.retranslateUi(MainWindow)
 
@@ -574,8 +574,8 @@ class Ui_MenuCarrera(object):
         MainWindow.setWindowTitle("")
         self.groupBox_5.setTitle(QCoreApplication.translate("MainWindow", u"Buscar", None))
         self.cbo_filterCarrera.setItemText(0, QCoreApplication.translate("MainWindow", u"Codigo", None))
-        self.cbo_filterCarrera.setItemText(1, QCoreApplication.translate("MainWindow", u"Nombre facultad", None))
-        self.cbo_filterCarrera.setItemText(2, QCoreApplication.translate("MainWindow", u"Siglas", None))
+        self.cbo_filterCarrera.setItemText(1, QCoreApplication.translate("MainWindow", u"Carrera", None))
+        self.cbo_filterCarrera.setItemText(2, QCoreApplication.translate("MainWindow", u"Nombre Facultad", None))
 
 #if QT_CONFIG(tooltip)
         self.btn_agregar.setToolTip(QCoreApplication.translate("MainWindow", u"Agregar cliente", None))

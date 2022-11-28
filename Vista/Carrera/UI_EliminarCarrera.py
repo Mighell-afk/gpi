@@ -149,10 +149,10 @@ class Ui_EliminarCarrera(object):
 
         self.gridLayout.addWidget(self.btn_buscar, 2, 2, 1, 1)
 
-        self.lbl_nombrefacultad = QLabel(self.gridLayoutWidget)
-        self.lbl_nombrefacultad.setObjectName(u"lbl_nombrefacultad")
+        self.lbl_nombreCarrera = QLabel(self.gridLayoutWidget)
+        self.lbl_nombreCarrera.setObjectName(u"lbl_nombreCarrera")
 
-        self.gridLayout.addWidget(self.lbl_nombrefacultad, 4, 1, 1, 1)
+        self.gridLayout.addWidget(self.lbl_nombreCarrera, 4, 1, 1, 1)
 
         self.label_11 = QLabel(self.gridLayoutWidget)
         self.label_11.setObjectName(u"label_11")
@@ -201,10 +201,9 @@ class Ui_EliminarCarrera(object):
         EstadoCarrera.setWindowTitle(QCoreApplication.translate("EstadoCarrera", u"Estado Carrera", None))
         self.label.setText(QCoreApplication.translate("EstadoCarrera", u"Eliminar Carrera", None))
         self.btn_buscar.setText("")
-        self.lbl_nombrefacultad.setText("")
+        self.lbl_nombreCarrera.setText("")
         self.label_11.setText(QCoreApplication.translate("EstadoCarrera", u"Codigo Carrera", None))
         self.label_12.setText(QCoreApplication.translate("EstadoCarrera", u"Descripcion", None))
         self.label_2.setText(QCoreApplication.translate("EstadoCarrera", u"Facultad", None))
         self.btn_eliminar.setText(QCoreApplication.translate("EstadoCarrera", u"Eliminar", None))
     # retranslateUi
-
