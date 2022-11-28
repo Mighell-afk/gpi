@@ -31,7 +31,7 @@ class program(QtWidgets.QMainWindow):
     
     def OpenMateria(self):
         self.materia = Materia()
-        self.materia.show()  
+        self.materia.show()
 
     def OpenCarrera(self):
         self.carrera = eliminarCarrera()
