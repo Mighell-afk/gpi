@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AltaBajaCarrera</class>
- <widget class="QWidget" name="AltaBajaCarrera">
+ <class>EstadoFacultad</class>
+ <widget class="QWidget" name="EstadoFacultad">
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -26,10 +26,10 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Alta/Baja Carrera</string>
+   <string>Estado Facultad</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resources.qrc">
+   <iconset>
     <normaloff>:/icons/images/icons/cil-pencil.png</normaloff>:/icons/images/icons/cil-pencil.png</iconset>
   </property>
   <property name="styleSheet">
@@ -133,7 +133,7 @@ QDateTimeEdit::down-button {
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>140</x>
      <y>0</y>
      <width>341</width>
      <height>71</height>
@@ -152,7 +152,7 @@ QDateTimeEdit::down-button {
     <string notr="true">font: 25 16pt &quot;Microsoft YaHei UI Light&quot;;</string>
    </property>
    <property name="text">
-    <string>Activar/Desactivar Carrera</string>
+    <string>aCARSRTDADA</string>
    </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget">
@@ -177,7 +177,7 @@ QDateTimeEdit::down-button {
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="../resources.qrc">
+       <iconset>
         <normaloff>:/icons/images/icons/cil-paper-plane.png</normaloff>:/icons/images/icons/cil-paper-plane.png</iconset>
       </property>
      </widget>
@@ -185,7 +185,7 @@ QDateTimeEdit::down-button {
     <item row="0" column="0">
      <widget class="QLabel" name="label_11">
       <property name="text">
-       <string>Codigo Carrera</string>
+       <string>Codigo Facultad</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -193,7 +193,7 @@ QDateTimeEdit::down-button {
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="txt_codcarrera">
+     <widget class="QLineEdit" name="txt_codfacultad">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -215,7 +215,7 @@ QDateTimeEdit::down-button {
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLabel" name="lbl_nombrecarrera">
+     <widget class="QLabel" name="lbl_nombrefacultad">
       <property name="text">
        <string/>
       </property>
@@ -260,7 +260,7 @@ QDateTimeEdit::down-button {
   <tabstop>btn_cambiarEstado</tabstop>
  </tabstops>
  <resources>
-  <include location="../resources.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>
