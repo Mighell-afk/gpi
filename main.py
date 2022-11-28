@@ -3,10 +3,10 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from z_modules.Facultad.facultad import facultad
-
+from materia import Materia
+from facultad import facultad
 from Vista.ui_main import Ui_Main
-from z_modules.Materia.materia import Materia
+
 
 class program(QtWidgets.QMainWindow):
    

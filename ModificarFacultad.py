@@ -3,11 +3,11 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from z_modules.conexion import BaseDeDatos
-from z_modules.eventos import *
+from conexion import BaseDeDatos
+from eventos import *
 
 
-from Vista.Facultad.UI_ModificarFacultad import Ui_ModificarFacultad
+from Vista.UI_ModificarFacultad import Ui_ModificarFacultad
 
 
 class modificar(QtWidgets.QMainWindow):

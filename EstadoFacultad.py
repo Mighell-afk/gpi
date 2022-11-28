@@ -3,9 +3,9 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from Vista.Facultad.ui_estadoFacu import Ui_EstadoFacultad
-from z_modules.conexion import BaseDeDatos
-from z_modules.eventos import *
+from Vista.ui_estadoFacu import Ui_EstadoFacultad
+from conexion import BaseDeDatos
+from eventos import *
 class estfacu(QtWidgets.QMainWindow):
    
    

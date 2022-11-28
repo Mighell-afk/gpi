@@ -186,7 +186,7 @@ QDateTimeEdit::down-button {
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QLineEdit" name="txt_siglas">
+     <widget class="QLineEdit" name="txt_materia">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -205,7 +205,7 @@ QDateTimeEdit::down-button {
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="txt_codfacultad">
+     <widget class="QLineEdit" name="txt_codmateria">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -237,7 +237,7 @@ QDateTimeEdit::down-button {
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QComboBox" name="cbo_facultad">
+     <widget class="QComboBox" name="cbo_materia">
       <property name="styleSheet">
        <string notr="true">/* ----------------- QComboBox ----------------- */
 QComboBox{
@@ -276,7 +276,7 @@ QComboBox QAbstractItemView {
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="btn_AnadirFacultad">
+  <widget class="QPushButton" name="btn_AnadirMateria">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -297,7 +297,7 @@ QComboBox QAbstractItemView {
   </widget>
  </widget>
  <tabstops>
-  <tabstop>btn_AnadirFacultad</tabstop>
+  <tabstop>btn_AnadirMateria</tabstop>
  </tabstops>
  <resources>
   <include location="../resources.qrc"/>

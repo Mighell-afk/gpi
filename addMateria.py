@@ -4,27 +4,21 @@ from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
 #from ..conexion import BaseDeDatos
-from Vista.Materia.ui_materia import Ui_Materia
+from Vista.ui_agregar_materia import Ui_CargarMateria
 
 
-class Materia(QtWidgets.QMainWindow):
+class AddMate(QtWidgets.QMainWindow):
    
    
     def __init__(self):
-        super(Materia, self).__init__()
-        self.materia = Ui_Materia()
-        self.materia.setupUi(self)
-
-
-
-
-
+        super(AddMate, self).__init__()
+        self.addmateria = Ui_CargarMateria()
+        self.addmateria.setupUi(self)
 
 
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    mi_aplicacion = Materia()
+    mi_aplicacion = AddMate()
     mi_aplicacion.show()
     sys.exit(app.exec_())
-
