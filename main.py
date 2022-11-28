@@ -19,6 +19,7 @@ class program(QtWidgets.QMainWindow):
 
         self.program.btn_facultad.clicked.connect(lambda:self.OpenFacultad())
         self.program.btn_materia.clicked.connect(lambda:self.OpenMateria())
+        self.program.btn_malla.setVisible(False)
 
 
     def OpenFacultad(self):

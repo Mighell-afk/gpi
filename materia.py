@@ -5,7 +5,8 @@ from PySide2 import QtWidgets
 import sys
 from conexion import BaseDeDatos
 from Vista.ui_materia import Ui_Materia
-# from addMateria import AddMate
+from addMateria import AddMate
+from ModificarMateria import ModificarMateria
 
 class Materia(QtWidgets.QMainWindow):
    
@@ -34,14 +35,12 @@ class Materia(QtWidgets.QMainWindow):
    
     
     def AbrirCargaMateria(self):
-        print("aca")
-        #self.Addmate = AddMate()
-        #self.Addmate.show()
+        self.Addmate = AddMate(self)
+        self.Addmate.show()
         
     def AbrirEditarFacu(self):
-        pass
-        # self.edifacu = modificar(self)
-        # self.edifacu.show()
+        self.edimate = ModificarMateria(self)
+        self.edimate.show()
 
     def AbrirEliminarFacu(self):
         pass
