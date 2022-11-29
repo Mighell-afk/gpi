@@ -25,7 +25,6 @@ class AddMate(QtWidgets.QMainWindow):
 
     #cargar el combo Box
     def CargarFacultad(self):
-        global id
         self.connect = BaseDeDatos()
         self.con = self.connect.con
         self.cur = self.con.cursor()
@@ -42,11 +41,11 @@ class AddMate(QtWidgets.QMainWindow):
         
     def AgregarMateria(self):
         codMateria = self.addmateria.txt_codfacultad.text()
-        #Facu_ID = int(self.addmateria.cbo_facultad.itemData(index))
-        print(id)
+        Facu_ID = int(self.addmateria.cbo_facultad.currentData())
+        # print(id)
         NombreMateria=self.addmateria.txt_siglas.text()
 
-        self.cur.execute(f"INSERT INTO Materia(idMateria,Facultad_ID,Nombre) VALUES({codMateria},{id},'{NombreMateria}') ")
+        self.cur.execute(f"INSERT INTO Materia(idMateria,Facultad_ID,Nombre) VALUES({codMateria},{Facu_ID},'{NombreMateria}') ")
         self.con.commit()
         self.parent.ActualizarMateria(self.parent.QueryForActive)
         #self.LimpiarCampos()

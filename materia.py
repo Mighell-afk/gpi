@@ -7,6 +7,9 @@ from conexion import BaseDeDatos
 from Vista.ui_materia import Ui_Materia
 from addMateria import AddMate
 from ModificarMateria import ModificarMateria
+from EliminarMateria import EliminarMateria
+from EstadoMateria import estmate
+
 
 class Materia(QtWidgets.QMainWindow):
    
@@ -35,22 +38,20 @@ class Materia(QtWidgets.QMainWindow):
    
     
     def AbrirCargaMateria(self):
-        self.Addmate = AddMate(self)
-        self.Addmate.show()
+        self.addmate = AddMate(self)
+        self.addmate.show()
         
     def AbrirEditarFacu(self):
         self.edimate = ModificarMateria(self)
         self.edimate.show()
 
     def AbrirEliminarFacu(self):
-        pass
-        # self.facu = elifacu(self)
-        # self.facu.show()
+        self.elimate = EliminarMateria(self)
+        self.elimate.show()
     
     def AbrirEstadoFacu(self):
-        pass
-        # self.estfacu = estfacu(self)
-        # self.estfacu.show()
+        self.estmate = estmate(self)
+        self.estmate.show()
 
         
 
@@ -58,13 +59,13 @@ class Materia(QtWidgets.QMainWindow):
     def FilterPerQuery(self):
          # --- RadioButton
         if self.materia.rdb_all.isChecked() == True:
-            self.ActualizarFacultad(self.QueryForAll)
+            self.ActualizarMateria(self.QueryForAll)
 
         elif self.materia.rdb_activo.isChecked() == True:
-            self.ActualizarFacultad(self.QueryForActive)
+            self.ActualizarMateria(self.QueryForActive)
             
         elif self.materia.rdb_inactivo.isChecked() == True:
-            self.ActualizarFacultad(self.QueryForInactive)
+            self.ActualizarMateria(self.QueryForInactive)
 
     
     
@@ -103,8 +104,11 @@ class Materia(QtWidgets.QMainWindow):
         self.materia.txtBuscar.textChanged.connect(filter_proxy_model.setFilterFixedString)
         self.materia.tablemateria.setModel(filter_proxy_model) 
 
-
-
+    def closeEvent(self, event: QCloseEvent):
+        from main import program
+        self.program = program()
+        self.program.show()
+    
 
 
 

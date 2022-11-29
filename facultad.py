@@ -107,7 +107,10 @@ class facultad(QtWidgets.QMainWindow):
         self.facultad.txtBuscarFacultad.textChanged.connect(filter_proxy_model.setFilterFixedString)
         self.facultad.tablefacultad.setModel(filter_proxy_model) 
 
-
+    def closeEvent(self, event: QCloseEvent):
+        from main import program
+        self.program = program()
+        self.program.show()
 
 
 if __name__ == '__main__':
