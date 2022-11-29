@@ -6,6 +6,8 @@ import sys
 from Vista.UI_EstadoCarrera import Ui_EstadoCarrera
 from conexion import BaseDeDatos
 from eventos import *
+
+
 class estadocarrera(QtWidgets.QMainWindow):
    
    

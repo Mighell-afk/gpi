@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CargarFacultad</class>
- <widget class="QWidget" name="CargarFacultad">
+ <class>EstadoCarrera</class>
+ <widget class="QWidget" name="EstadoCarrera">
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -26,7 +26,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Cargar Producto</string>
+   <string>Estado de Carrera</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../resources.qrc">
