@@ -7,7 +7,7 @@ class BaseDeDatos():
                 host='localhost',
                 user= 'root',
                 port= 3306,
-                password = 'admin',
+                password = '12345',
                 database = 'uaamallacurricular'
             )
     cur = con.cursor()
