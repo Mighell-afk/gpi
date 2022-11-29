@@ -5,6 +5,7 @@ from PySide2 import QtWidgets
 import sys
 from materia import Materia
 from facultad import facultad
+from Carrera import carrera
 from Vista.ui_main import Ui_Main
 
 
@@ -19,6 +20,7 @@ class program(QtWidgets.QMainWindow):
 
         self.program.btn_facultad.clicked.connect(lambda:self.OpenFacultad())
         self.program.btn_materia.clicked.connect(lambda:self.OpenMateria())
+        self.program.btn_carrera.clicked.connect(lambda:self.OpenCarrera())
         self.program.btn_malla.setVisible(False)
 
 
@@ -31,7 +33,10 @@ class program(QtWidgets.QMainWindow):
         self.materia = Materia()
         self.materia.show()
         self.close()
-
+    def OpenCarrera(self):
+        self.carrera = carrera()
+        self.carrera.show()
+        self.close()
     
 
 if __name__ == '__main__':

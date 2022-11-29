@@ -28,7 +28,7 @@ class ModificarMateria(QtWidgets.QMainWindow):
         self.cur = self.con.cursor()
         id = self.modmateria.txt_codMateria.text()
         # self.cur.execute(f"SELECT idMateria,Facultad_ID,Nombre FROM materia where idMateria = {int(id)} and Activo = 1;")
-        self.cur.execute(f"select idMateria,mt.Nombre as Materia,fa.nombre as facultad from materia mt INNER JOIN facultad fa on (mt.Facultad_ID = fa.idfacultad) WHERE idMateria ={int(id)} and mt.Activo =1; ")
+        self.cur.execute(f"select idMateria,mt.Nombre as Materia,fa.nombre as facultad from materia mt INNER JOIN facultad fa on (mt.idfacultad = fa.idfacultad) WHERE idMateria ={int(id)} and mt.Activo =1; ")
         DatosMateria = self.cur.fetchall()
    
         if DatosMateria != []:
@@ -66,7 +66,7 @@ class ModificarMateria(QtWidgets.QMainWindow):
         
         FacuID = self.modmateria.cbo_Facultad.currentData()
         NombreMate = self.modmateria.txt_nombreMateria.text()
-        self.cur.execute(f" UPDATE materia SET Facultad_ID = {FacuID}, Nombre = '{NombreMate}' WHERE idMateria = {int(DatosMateria[0][0])} ")
+        self.cur.execute(f" UPDATE materia SET idfacultad = {FacuID}, Nombre = '{NombreMate}' WHERE idMateria = {int(DatosMateria[0][0])} ")
         self.con.commit()
         self.LimpiarCampos()
         InfoMsg(self,'Informacion','Materia Modificada con exito')

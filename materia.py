@@ -19,9 +19,9 @@ class Materia(QtWidgets.QMainWindow):
         self.materia = Ui_Materia()
         self.materia.setupUi(self)
 
-        self.QueryForAll      = "select idMateria,mt.Nombre as Materia,fa.nombre as facultad from materia mt INNER JOIN facultad fa on (mt.Facultad_ID = fa.idfacultad)"
-        self.QueryForActive   = "select idMateria,mt.Nombre as Materia,fa.nombre as facultad from materia mt INNER JOIN facultad fa on (mt.Facultad_ID = fa.idfacultad) WHERE mt.Activo =1"
-        self.QueryForInactive = "select idMateria,mt.Nombre as Materia,fa.nombre as facultad from materia mt INNER JOIN facultad fa on (mt.Facultad_ID = fa.idfacultad) WHERE mt.Activo =0"
+        self.QueryForAll      = "select idMateria,mt.Nombre as Materia,fa.nombre as facultad from materia mt INNER JOIN facultad fa on (mt.idfacultad = fa.idfacultad)"
+        self.QueryForActive   = "select idMateria,mt.Nombre as Materia,fa.nombre as facultad from materia mt INNER JOIN facultad fa on (mt.idfacultad = fa.idfacultad) WHERE mt.Activo =1"
+        self.QueryForInactive = "select idMateria,mt.Nombre as Materia,fa.nombre as facultad from materia mt INNER JOIN facultad fa on (mt.idfacultad = fa.idfacultad) WHERE mt.Activo =0"
 
         self.ActualizarMateria(self.QueryForActive)
 

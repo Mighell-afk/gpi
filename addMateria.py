@@ -45,7 +45,7 @@ class AddMate(QtWidgets.QMainWindow):
         # print(id)
         NombreMateria=self.addmateria.txt_siglas.text()
 
-        self.cur.execute(f"INSERT INTO Materia(idMateria,Facultad_ID,Nombre) VALUES({codMateria},{Facu_ID},'{NombreMateria}') ")
+        self.cur.execute(f"INSERT INTO Materia(idMateria,idfacultad,Nombre) VALUES({codMateria},{Facu_ID},'{NombreMateria}') ")
         self.con.commit()
         self.parent.ActualizarMateria(self.parent.QueryForActive)
         #self.LimpiarCampos()
