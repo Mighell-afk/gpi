@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'form_materia.ui'
+## Form generated from reading UI file 'form_carrera.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -14,8 +14,7 @@ from PySide2.QtWidgets import *
 
 from Vista import resources
 
-
-class Ui_Materia(object):
+class Ui_MenuCarrera(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -333,14 +332,14 @@ class Ui_Materia(object):
         self.groupBox_5.setObjectName(u"groupBox_5")
         self.horizontalLayout_20 = QHBoxLayout(self.groupBox_5)
         self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
-        self.cbo_filterMateria = QComboBox(self.groupBox_5)
-        self.cbo_filterMateria.addItem("")
-        self.cbo_filterMateria.addItem("")
-        self.cbo_filterMateria.addItem("")
-        self.cbo_filterMateria.setObjectName(u"cbo_filterMateria")
-        self.cbo_filterMateria.setMinimumSize(QSize(200, 0))
+        self.cbo_filterCarrera = QComboBox(self.groupBox_5)
+        self.cbo_filterCarrera.addItem("")
+        self.cbo_filterCarrera.addItem("")
+        self.cbo_filterCarrera.addItem("")
+        self.cbo_filterCarrera.setObjectName(u"cbo_filterCarrera")
+        self.cbo_filterCarrera.setMinimumSize(QSize(200, 0))
 
-        self.horizontalLayout_20.addWidget(self.cbo_filterMateria)
+        self.horizontalLayout_20.addWidget(self.cbo_filterCarrera)
 
 
         self.horizontalLayout_19.addWidget(self.groupBox_5)
@@ -450,10 +449,10 @@ class Ui_Materia(object):
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.horizontalLayout_21 = QHBoxLayout()
         self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
-        self.txtBuscar = QLineEdit(self.personas)
-        self.txtBuscar.setObjectName(u"txtBuscar")
+        self.txtBuscarCarrera = QLineEdit(self.personas)
+        self.txtBuscarCarrera.setObjectName(u"txtBuscarCarrera")
 
-        self.horizontalLayout_21.addWidget(self.txtBuscar)
+        self.horizontalLayout_21.addWidget(self.txtBuscarCarrera)
 
         self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -464,15 +463,15 @@ class Ui_Materia(object):
 
         self.gridLayout_13 = QGridLayout()
         self.gridLayout_13.setObjectName(u"gridLayout_13")
-        self.tablemateria = QTableView(self.personas)
-        self.tablemateria.setObjectName(u"tablemateria")
-        self.tablemateria.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.tablemateria.setSelectionBehavior(QAbstractItemView.SelectRows)
-        self.tablemateria.horizontalHeader().setMinimumSectionSize(80)
-        self.tablemateria.horizontalHeader().setDefaultSectionSize(150)
-        self.tablemateria.horizontalHeader().setStretchLastSection(True)
+        self.tablecarrera = QTableView(self.personas)
+        self.tablecarrera.setObjectName(u"tablecarrera")
+        self.tablecarrera.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tablecarrera.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.tablecarrera.horizontalHeader().setMinimumSectionSize(80)
+        self.tablecarrera.horizontalHeader().setDefaultSectionSize(150)
+        self.tablecarrera.horizontalHeader().setStretchLastSection(True)
 
-        self.gridLayout_13.addWidget(self.tablemateria, 0, 0, 1, 1)
+        self.gridLayout_13.addWidget(self.tablecarrera, 0, 0, 1, 1)
 
 
         self.gridLayout_8.addLayout(self.gridLayout_13, 1, 0, 1, 1)
@@ -561,8 +560,8 @@ class Ui_Materia(object):
         self.gridLayout_10.addWidget(self.bgApp, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.styleSheet)
-        QWidget.setTabOrder(self.cbo_filterMateria, self.txtBuscar)
-        QWidget.setTabOrder(self.txtBuscar, self.tablemateria)
+        QWidget.setTabOrder(self.cbo_filterCarrera, self.txtBuscarCarrera)
+        QWidget.setTabOrder(self.txtBuscarCarrera, self.tablecarrera)
 
         self.retranslateUi(MainWindow)
 
@@ -573,11 +572,11 @@ class Ui_Materia(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Materia", None))
+        MainWindow.setWindowTitle("")
         self.groupBox_5.setTitle(QCoreApplication.translate("MainWindow", u"Buscar", None))
-        self.cbo_filterMateria.setItemText(0, QCoreApplication.translate("MainWindow", u"Codigo", None))
-        self.cbo_filterMateria.setItemText(1, QCoreApplication.translate("MainWindow", u"Nombre facultad", None))
-        self.cbo_filterMateria.setItemText(2, QCoreApplication.translate("MainWindow", u"Nombre materia", None))
+        self.cbo_filterCarrera.setItemText(0, QCoreApplication.translate("MainWindow", u"Codigo", None))
+        self.cbo_filterCarrera.setItemText(1, QCoreApplication.translate("MainWindow", u"Carrera", None))
+        self.cbo_filterCarrera.setItemText(2, QCoreApplication.translate("MainWindow", u"Nombre Facultad", None))
 
 #if QT_CONFIG(tooltip)
         self.btn_agregar.setToolTip(QCoreApplication.translate("MainWindow", u"Agregar cliente", None))
@@ -589,7 +588,7 @@ class Ui_Materia(object):
         self.btn_modificar.setText(QCoreApplication.translate("MainWindow", u"Modificar", None))
         self.btn_eliminar.setText(QCoreApplication.translate("MainWindow", u"Eliminar", None))
         self.btn_baja.setText(QCoreApplication.translate("MainWindow", u"Activar/Desactivar", None))
-        self.txtBuscar.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar...", None))
+        self.txtBuscarCarrera.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar...", None))
         self.rdb_activo.setText(QCoreApplication.translate("MainWindow", u"Mostrar activos", None))
         self.rdb_inactivo.setText(QCoreApplication.translate("MainWindow", u"Mostrar inactivos", None))
         self.rdb_all.setText(QCoreApplication.translate("MainWindow", u"Mostrar todos", None))

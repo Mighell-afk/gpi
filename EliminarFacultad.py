@@ -3,9 +3,9 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from z_modules.conexion import BaseDeDatos
-from Vista.Facultad.UI_EliminarFacultad import Ui_EliminarFacultad
-from z_modules.eventos import *
+from conexion import BaseDeDatos
+from Vista.UI_EliminarFacultad import Ui_EliminarFacultad
+from eventos import *
 
 class elifacu(QtWidgets.QMainWindow):
    

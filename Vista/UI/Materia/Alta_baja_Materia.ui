@@ -29,7 +29,7 @@
    <string>Estado Facultad</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset resource="../resources.qrc">
     <normaloff>:/icons/images/icons/cil-pencil.png</normaloff>:/icons/images/icons/cil-pencil.png</iconset>
   </property>
   <property name="styleSheet">
@@ -133,9 +133,9 @@ QDateTimeEdit::down-button {
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>140</x>
      <y>0</y>
-     <width>201</width>
+     <width>341</width>
      <height>71</height>
     </rect>
    </property>
@@ -152,7 +152,7 @@ QDateTimeEdit::down-button {
     <string notr="true">font: 25 16pt &quot;Microsoft YaHei UI Light&quot;;</string>
    </property>
    <property name="text">
-    <string>EliminarFacultad</string>
+    <string>Activar/Desactivar Materia</string>
    </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget">
@@ -177,7 +177,7 @@ QDateTimeEdit::down-button {
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="resources.qrc">
+       <iconset resource="../resources.qrc">
         <normaloff>:/icons/images/icons/cil-paper-plane.png</normaloff>:/icons/images/icons/cil-paper-plane.png</iconset>
       </property>
      </widget>
@@ -193,7 +193,7 @@ QDateTimeEdit::down-button {
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="txt_codfacultad">
+     <widget class="QLineEdit" name="txt_codmateria">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -215,7 +215,7 @@ QDateTimeEdit::down-button {
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLabel" name="lbl_nombrefacultad">
+     <widget class="QLabel" name="lbl_nombremateria">
       <property name="text">
        <string/>
       </property>
@@ -233,7 +233,7 @@ QDateTimeEdit::down-button {
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="btn_eliminar">
+  <widget class="QPushButton" name="btn_cambiarEstado">
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -252,15 +252,15 @@ QDateTimeEdit::down-button {
     </size>
    </property>
    <property name="text">
-    <string>Eliminar</string>
+    <string>Activar/Desactivar</string>
    </property>
   </widget>
  </widget>
  <tabstops>
-  <tabstop>btn_eliminar</tabstop>
+  <tabstop>btn_cambiarEstado</tabstop>
  </tabstops>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="../resources.qrc"/>
  </resources>
  <connections/>
 </ui>

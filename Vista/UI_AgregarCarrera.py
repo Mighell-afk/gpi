@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'AgregarMateria.ui'
+## Form generated from reading UI file 'AgregarCarrera.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -11,21 +11,21 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+
 from Vista import resources
 
-
-class Ui_CargarMateria(object):
-    def setupUi(self, CargarMateria):
-        if not CargarMateria.objectName():
-            CargarMateria.setObjectName(u"CargarMateria")
-        CargarMateria.setWindowModality(Qt.ApplicationModal)
-        CargarMateria.resize(500, 312)
-        CargarMateria.setMinimumSize(QSize(500, 270))
-        CargarMateria.setMaximumSize(QSize(3000, 3000))
+class Ui_AgregarCarrera(object):
+    def setupUi(self, CargarFacultad):
+        if not CargarFacultad.objectName():
+            CargarFacultad.setObjectName(u"CargarFacultad")
+        CargarFacultad.setWindowModality(Qt.ApplicationModal)
+        CargarFacultad.resize(500, 312)
+        CargarFacultad.setMinimumSize(QSize(500, 270))
+        CargarFacultad.setMaximumSize(QSize(3000, 3000))
         icon = QIcon()
         icon.addFile(u":/icons/images/icons/cil-pencil.png", QSize(), QIcon.Normal, QIcon.Off)
-        CargarMateria.setWindowIcon(icon)
-        CargarMateria.setStyleSheet(u"QWidget{\n"
+        CargarFacultad.setWindowIcon(icon)
+        CargarFacultad.setStyleSheet(u"QWidget{\n"
 "	color: #333;\n"
 "	font: 9pt \"Segoe UI\";\n"
 "}\n"
@@ -122,9 +122,9 @@ class Ui_CargarMateria(object):
 "\n"
 "\n"
 "")
-        self.label = QLabel(CargarMateria)
+        self.label = QLabel(CargarFacultad)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(150, 0, 221, 71))
+        self.label.setGeometry(QRect(160, 0, 221, 71))
         font = QFont()
         font.setFamily(u"Microsoft YaHei UI Light")
         font.setPointSize(16)
@@ -133,7 +133,7 @@ class Ui_CargarMateria(object):
         font.setWeight(3)
         self.label.setFont(font)
         self.label.setStyleSheet(u"font: 25 16pt \"Microsoft YaHei UI Light\";")
-        self.gridLayoutWidget = QWidget(CargarMateria)
+        self.gridLayoutWidget = QWidget(CargarFacultad)
         self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
         self.gridLayoutWidget.setGeometry(QRect(20, 80, 441, 121))
         self.gridLayout = QGridLayout(self.gridLayoutWidget)
@@ -145,28 +145,29 @@ class Ui_CargarMateria(object):
 
         self.gridLayout.addWidget(self.label_10, 1, 0, 1, 1)
 
+        self.txt_nombreCarrera = QLineEdit(self.gridLayoutWidget)
+        self.txt_nombreCarrera.setObjectName(u"txt_nombreCarrera")
+        self.txt_nombreCarrera.setEnabled(True)
+        self.txt_nombreCarrera.setMinimumSize(QSize(0, 0))
+        self.txt_nombreCarrera.setMaximumSize(QSize(295, 16777215))
+        self.txt_nombreCarrera.setClearButtonEnabled(False)
+
+        self.gridLayout.addWidget(self.txt_nombreCarrera, 1, 1, 1, 1)
+
         self.label_8 = QLabel(self.gridLayoutWidget)
         self.label_8.setObjectName(u"label_8")
         self.label_8.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout.addWidget(self.label_8, 2, 0, 1, 1)
 
-        self.txt_siglas = QLineEdit(self.gridLayoutWidget)
-        self.txt_siglas.setObjectName(u"txt_siglas")
-        self.txt_siglas.setEnabled(True)
-        self.txt_siglas.setMinimumSize(QSize(0, 0))
-        self.txt_siglas.setMaximumSize(QSize(295, 16777215))
+        self.txt_codCarrera = QLineEdit(self.gridLayoutWidget)
+        self.txt_codCarrera.setObjectName(u"txt_codCarrera")
+        self.txt_codCarrera.setEnabled(True)
+        self.txt_codCarrera.setMinimumSize(QSize(0, 0))
+        self.txt_codCarrera.setMaximumSize(QSize(295, 16777215))
+        self.txt_codCarrera.setClearButtonEnabled(False)
 
-        self.gridLayout.addWidget(self.txt_siglas, 2, 1, 1, 1)
-
-        self.txt_codfacultad = QLineEdit(self.gridLayoutWidget)
-        self.txt_codfacultad.setObjectName(u"txt_codfacultad")
-        self.txt_codfacultad.setEnabled(True)
-        self.txt_codfacultad.setMinimumSize(QSize(0, 0))
-        self.txt_codfacultad.setMaximumSize(QSize(295, 16777215))
-        self.txt_codfacultad.setClearButtonEnabled(False)
-
-        self.gridLayout.addWidget(self.txt_codfacultad, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.txt_codCarrera, 0, 1, 1, 1)
 
         self.label_11 = QLabel(self.gridLayoutWidget)
         self.label_11.setObjectName(u"label_11")
@@ -174,59 +175,28 @@ class Ui_CargarMateria(object):
 
         self.gridLayout.addWidget(self.label_11, 0, 0, 1, 1)
 
-        self.cbo_facultad = QComboBox(self.gridLayoutWidget)
-        self.cbo_facultad.setObjectName(u"cbo_facultad")
-        self.cbo_facultad.setStyleSheet(u"/* ----------------- QComboBox ----------------- */\n"
-"QComboBox{\n"
-"	background-color: white;\n"
-"	border-radius: 5px;\n"
-"	border: 2px solid #1F54A3;\n"
-"    color: black;\n"
-"}\n"
-"QComboBox:hover{\n"
-"	border: 2px solid #7284b9;\n"
-"}\n"
-"QComboBox::drop-down {\n"
-"	subcontrol-origin: padding;\n"
-"	subcontrol-position: top right;\n"
-"	width: 25px; \n"
-"	border-left-width: 3px;\n"
-"	border-left-color: white;\n"
-"	border-left-style: solid;\n"
-"	border-top-right-radius: 3px;\n"
-"	background-image:url(:/icons/images/icons/cil-arrow-bottom.png);\n"
-"	border-bottom-right-radius: 3px;	\n"
-"	background-position: center;\n"
-"	background-repeat: no-reperat;\n"
-" }\n"
-"\n"
-"QComboBox QAbstractItemView {\n"
-"	color: white;	\n"
-"	background-color: #1F54A3;\n"
-"	\n"
-"	selection-background-color: #1F54A3;\n"
-"}\n"
-"\n"
-"")
+        self.cboFacultad = QComboBox(self.gridLayoutWidget)
+        self.cboFacultad.setObjectName(u"cboFacultad")
 
-        self.gridLayout.addWidget(self.cbo_facultad, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.cboFacultad, 2, 1, 1, 1)
 
-        self.btn_AnadirFacultad = QPushButton(CargarMateria)
-        self.btn_AnadirFacultad.setObjectName(u"btn_AnadirFacultad")
-        self.btn_AnadirFacultad.setGeometry(QRect(170, 220, 141, 41))
-        self.btn_AnadirFacultad.setMinimumSize(QSize(116, 32))
+        self.btn_AnadirCarrera = QPushButton(CargarFacultad)
+        self.btn_AnadirCarrera.setObjectName(u"btn_AnadirCarrera")
+        self.btn_AnadirCarrera.setGeometry(QRect(170, 220, 141, 41))
+        self.btn_AnadirCarrera.setMinimumSize(QSize(116, 32))
+        QWidget.setTabOrder(self.txt_nombreCarrera, self.btn_AnadirCarrera)
 
-        self.retranslateUi(CargarMateria)
+        self.retranslateUi(CargarFacultad)
 
-        QMetaObject.connectSlotsByName(CargarMateria)
+        QMetaObject.connectSlotsByName(CargarFacultad)
     # setupUi
 
-    def retranslateUi(self, CargarMateria):
-        CargarMateria.setWindowTitle(QCoreApplication.translate("CargarMateria", u"Cargar Materia", None))
-        self.label.setText(QCoreApplication.translate("CargarMateria", u"Agregar Materia", None))
-        self.label_10.setText(QCoreApplication.translate("CargarMateria", u"Nombre Facultad", None))
-        self.label_8.setText(QCoreApplication.translate("CargarMateria", u"Nombre de materia", None))
-        self.label_11.setText(QCoreApplication.translate("CargarMateria", u"Codigo Materia", None))
-        self.btn_AnadirFacultad.setText(QCoreApplication.translate("CargarMateria", u"A\u00f1adir", None))
+    def retranslateUi(self, CargarFacultad):
+        CargarFacultad.setWindowTitle(QCoreApplication.translate("CargarFacultad", u"Cargar Producto", None))
+        self.label.setText(QCoreApplication.translate("CargarFacultad", u"Agregar Carrera", None))
+        self.label_10.setText(QCoreApplication.translate("CargarFacultad", u"Nombre Carrera", None))
+        self.label_8.setText(QCoreApplication.translate("CargarFacultad", u"Facultad", None))
+        self.label_11.setText(QCoreApplication.translate("CargarFacultad", u"Codigo Carrera", None))
+        self.btn_AnadirCarrera.setText(QCoreApplication.translate("CargarFacultad", u"A\u00f1adir", None))
     # retranslateUi
 

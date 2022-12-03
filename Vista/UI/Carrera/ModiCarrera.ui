@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+<<<<<<< HEAD
  <class>ModificarCarrera</class>
  <widget class="QWidget" name="ModificarCarrera">
+=======
+ <class>CargarFacultad</class>
+ <widget class="QWidget" name="CargarFacultad">
+>>>>>>> Diego
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -10,7 +15,11 @@
     <x>0</x>
     <y>0</y>
     <width>621</width>
+<<<<<<< HEAD
     <height>314</height>
+=======
+    <height>328</height>
+>>>>>>> Diego
    </rect>
   </property>
   <property name="minimumSize">
@@ -26,7 +35,11 @@
    </size>
   </property>
   <property name="windowTitle">
+<<<<<<< HEAD
    <string>Modificar Carrera</string>
+=======
+   <string>Cargar Producto</string>
+>>>>>>> Diego
   </property>
   <property name="windowIcon">
    <iconset resource="../resources.qrc">
@@ -165,6 +178,7 @@ QDateTimeEdit::down-button {
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
+<<<<<<< HEAD
     <item row="0" column="2">
      <widget class="QPushButton" name="btn_buscar">
       <property name="minimumSize">
@@ -179,11 +193,24 @@ QDateTimeEdit::down-button {
       <property name="icon">
        <iconset resource="../resources.qrc">
         <normaloff>:/icons/images/icons/cil-paper-plane.png</normaloff>:/icons/images/icons/cil-paper-plane.png</iconset>
+=======
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>Nombre Carrera</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+>>>>>>> Diego
       </property>
      </widget>
     </item>
     <item row="1" column="1">
+<<<<<<< HEAD
      <widget class="QLineEdit" name="txt_nombrecarrera">
+=======
+     <widget class="QLineEdit" name="txt_nombreCarrera">
+>>>>>>> Diego
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -204,6 +231,29 @@ QDateTimeEdit::down-button {
       </property>
      </widget>
     </item>
+<<<<<<< HEAD
+=======
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_11">
+      <property name="text">
+       <string>Codigo Carrera</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Facultad</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+>>>>>>> Diego
     <item row="0" column="1">
      <widget class="QLineEdit" name="txt_codcarrera">
       <property name="enabled">
@@ -226,6 +276,7 @@ QDateTimeEdit::down-button {
       </property>
      </widget>
     </item>
+<<<<<<< HEAD
     <item row="1" column="0">
      <widget class="QLabel" name="label_10">
       <property name="text">
@@ -243,6 +294,29 @@ QDateTimeEdit::down-button {
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+=======
+    <item row="0" column="2">
+     <widget class="QPushButton" name="btn_buscar">
+      <property name="minimumSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources.qrc">
+        <normaloff>:/icons/images/icons/cil-paper-plane.png</normaloff>:/icons/images/icons/cil-paper-plane.png</iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QComboBox" name="cbo_Facultad">
+      <property name="mouseTracking">
+       <bool>true</bool>
+>>>>>>> Diego
       </property>
      </widget>
     </item>
@@ -272,7 +346,11 @@ QDateTimeEdit::down-button {
   </widget>
  </widget>
  <tabstops>
+<<<<<<< HEAD
   <tabstop>txt_nombrecarrera</tabstop>
+=======
+  <tabstop>txt_nombreCarrera</tabstop>
+>>>>>>> Diego
   <tabstop>btn_modificar</tabstop>
  </tabstops>
  <resources>

@@ -3,12 +3,13 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from ..conexion import BaseDeDatos
-from z_modules.Facultad.AnadirFacultad import Addfacu
-from Vista.Facultad.ui_facultad import Ui_Facultad
-from z_modules.Facultad.ModificarFacultad import modificar
-from z_modules.Facultad.EliminarFacultad import elifacu
-from z_modules.Facultad.EstadoFacultad import estfacu
+from conexion import BaseDeDatos
+from Vista.ui_facultad import Ui_Facultad
+
+from AnadirFacultad import Addfacu
+from ModificarFacultad import modificar
+from EliminarFacultad import elifacu
+from EstadoFacultad import estfacu
 
 class facultad(QtWidgets.QMainWindow):
    
@@ -106,7 +107,10 @@ class facultad(QtWidgets.QMainWindow):
         self.facultad.txtBuscarFacultad.textChanged.connect(filter_proxy_model.setFilterFixedString)
         self.facultad.tablefacultad.setModel(filter_proxy_model) 
 
-
+    def closeEvent(self, event: QCloseEvent):
+        from main import program
+        self.program = program()
+        self.program.show()
 
 
 if __name__ == '__main__':

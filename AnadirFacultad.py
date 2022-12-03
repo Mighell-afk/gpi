@@ -3,9 +3,9 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from z_modules.conexion import BaseDeDatos
-from z_modules.eventos import *
-from Vista.Facultad.UI_Addfacu import Ui_AnadirFacultad
+from conexion import BaseDeDatos
+from eventos import *
+from Vista.UI_Addfacu import Ui_AnadirFacultad
 
 
 class Addfacu(QtWidgets.QMainWindow):
