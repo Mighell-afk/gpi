@@ -3,7 +3,7 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from conexion import BaseDeDatos
+from conexion import *
 from eventos import *
 from Vista.UI_Addfacu import Ui_AnadirFacultad
 
@@ -33,23 +33,25 @@ class Addfacu(QtWidgets.QMainWindow):
             codFacu = self.Addfacu.txt_codfacultad.text()
             nombrefacu=self.Addfacu.txt_nombreFacultad.text()
             siglas=self.Addfacu.txt_siglas.text()
-
-            self.cur.execute(f"INSERT INTO facultad(idfacultad,nombre,siglas) VALUES({codFacu},'{nombrefacu}','{siglas}') ")
-            self.con.commit()
-            self.parent.ActualizarFacultad(self.parent.QueryForActive)
-            self.LimpiarCampos()
-            InfoMsg(self,'Informacion','Facultad Cargada con exito')
-
+            try:
+                self.cur.execute(f"INSERT INTO facultad(idfacultad,nombre,siglas) VALUES({codFacu},'{nombrefacu}','{siglas}') ")
+                self.con.commit()
+                self.parent.ActualizarFacultad(self.parent.QueryForActive)
+                self.LimpiarCampos()
+                InfoMsg(self,'Informacion','Facultad Cargada con exito')
+            except mysql.connector.IntegrityError:
+                CritiCalMsg(self,'Error',f'Codigo de la facultad ya esta en uso')
+            
             
 
 
 
     def ValidarDatos(self):
-        codFacu = self.Addfacu.txt_codfacultad.text()
+        codFaq = self.Addfacu.txt_codfacultad.text()
         nombrefacu = self.Addfacu.txt_nombreFacultad.text()
         siglas = self.Addfacu.txt_siglas.text()
         
-        if not codFacu.isnumeric():
+        if not codFaq.isnumeric():
             WarningMsg(self,"Atencion","Codigo de la facultad no es numerico")
             return False
 

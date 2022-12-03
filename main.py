@@ -21,16 +21,15 @@ class program(QtWidgets.QMainWindow):
         self.program = Ui_Main()
         self.program.setupUi(self)
 
-
         self.program.btn_facultad.clicked.connect(lambda:self.OpenFacultad())
         self.program.btn_materia.clicked.connect(lambda:self.OpenMateria())
         self.program.btn_carrera.clicked.connect(lambda:self.OpenCarrera())
-        self.program.btn_malla.setVisible(False)
 
 
     def OpenFacultad(self):
         self.facu = facultad()
         self.facu.show()
+        self.close()
     
     def OpenMateria(self):
         self.materia = Materia()
@@ -41,11 +40,6 @@ class program(QtWidgets.QMainWindow):
         self.carrera = carrera()
         self.carrera.show()
         self.close()
-    
-
-    # def OpenCarreraEli(self):
-    #     self.carrera = eliminarCarrera()
-    #     self.carrera.show()
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
