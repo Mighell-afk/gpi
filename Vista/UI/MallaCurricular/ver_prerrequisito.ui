@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VerPrerrequisito</class>
+ <widget class="QWidget" name="VerPrerrequisito">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>720</width>
+    <height>297</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>420</width>
+    <height>270</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>3000</width>
+    <height>3000</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Agregar Prerrequisito</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/icons/images/icons/cil-pencil.png</normaloff>:/icons/images/icons/cil-pencil.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+	color: #333;
+	font: 9pt &quot;Segoe UI&quot;;
+}
+/* ----------------- LineEdit  ----------------- */
+QLineEdit {
+	border-radius: 5px;
+	border: 2px solid #1F54A3;
+	padding-left: 10px;
+	selection-color: white;
+	selection-background-color: #2A3C57;
+    color: black;
+}
+QLineEdit:hover {
+	border: 2px solid rgb(98, 114, 164);
+}
+QLineEdit:focus {
+	border: 2px solid #2A3C57;
+}
+
+
+
+/* ----------------- Button ----------------- */
+QPushButton {
+	border: 2px solid #1F54A3;
+	border-radius: 5px;	
+	background-color: #1F54A3;
+	color:white;
+}
+ QPushButton:hover {
+	background-color: #286FD6;
+	border: 2px solid #286FD6;
+}
+ QPushButton:pressed {	
+	background-color: #2A3C57;
+	border: 2px solid #2A3C57;
+}
+
+/* ----------------- CheckBox ----------------- */
+
+QCheckBox::indicator {
+	border : 1px solid #6272a4;
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+    background: #6272a4;
+}
+QCheckBox::indicator:hover {
+	background-color: #286FD6;
+	border : 1px solid #286FD6;
+}
+QCheckBox::indicator:checked {
+	border : 1px solid #1F54A3;
+    background: 3px solid #1F54A3;	
+	background-image: url(:/icons/images/icons/cil-check-alt.png);
+}
+
+
+/* ----------------- QDateEdit ----------------- */
+QDateTimeEdit{
+	background-color: white;
+	border-radius: 5px;
+	border: 2px solid #1F54A3;
+    color: black;
+}
+QDateTimeEdit:hover{
+	border: 2px solid #7284b9;
+}
+
+QDateTimeEdit:focus {
+	border: 2px solid #2A3C57;
+}
+
+
+QDateTimeEdit::up-button {
+    border-image: url(:/icons/images/icons/cil-arrow-top.png); 
+}
+
+QDateTimeEdit::down-button {
+    border-image: url(:/icons/images/icons/cil-arrow-bottom.png);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>720</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei UI Light</family>
+     <pointsize>16</pointsize>
+     <weight>3</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 25 16pt &quot;Microsoft YaHei UI Light&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Prerrequisitos</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="table_prerrequisito">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>701</width>
+     <height>221</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

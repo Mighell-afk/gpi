@@ -383,7 +383,7 @@ class UI_AgregarMalla(object):
     # setupUi
 
     def retranslateUi(self, CargarMalla):
-        CargarMalla.setWindowTitle(QCoreApplication.translate("CargarMalla", u"Cargar Producto", None))
+        CargarMalla.setWindowTitle(QCoreApplication.translate("CargarMalla", u"Cargar Malla", None))
         self.label.setText(QCoreApplication.translate("CargarMalla", u"Agregar Malla", None))
         self.btn_guardar_malla.setText(QCoreApplication.translate("CargarMalla", u"Guardar", None))
         self.label_10.setText(QCoreApplication.translate("CargarMalla", u"Promocion", None))

@@ -4,9 +4,12 @@ from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 from conexion import BaseDeDatos
 from Vista.UI_MallaCurricular import Ui_MallaCurricular
+from VerMalla import VerMalla
 from AnadirMalla import AnadirMalla
 from EliminarMalla import EliminarMalla
 import sys
+
+from eventos import *
 
 class malla_curricular(QMainWindow):
     def __init__(self):
@@ -15,14 +18,25 @@ class malla_curricular(QMainWindow):
         self.malla = Ui_MallaCurricular()
         self.malla.setupUi(self)
 
+        self.IDMallaActual = -1
+
         self.QueryForAll      = "select ma.idmalla_curricular, ca.nombre, fa.nombre, mo.descripcion, ma.promocion, ma.fecha_inicio from malla_curricular ma inner join carrera ca on ma.idcarrera = ca.idcarrera inner join facultad fa on ma.idfacultad = fa.idfacultad inner join modalidad mo on ma.idmodalidad = mo.idmodalidad"
         self.QueryForActive   = "select ma.idmalla_curricular, ca.nombre, fa.nombre, mo.descripcion, ma.promocion, ma.fecha_inicio from malla_curricular ma inner join carrera ca on ma.idcarrera = ca.idcarrera inner join facultad fa on ma.idfacultad = fa.idfacultad inner join modalidad mo on ma.idmodalidad = mo.idmodalidad where ma.activo = 1"
         self.QueryForInactive = "select ma.idmalla_curricular, ca.nombre, fa.nombre, mo.descripcion, ma.promocion, ma.fecha_inicio from malla_curricular ma inner join carrera ca on ma.idcarrera = ca.idcarrera inner join facultad fa on ma.idfacultad = fa.idfacultad inner join modalidad mo on ma.idmodalidad = mo.idmodalidad where ma.activo = 0"
 
         self.ActualizarMallas(self.QueryForActive)
 
+        self.malla.btn_ver_malla.clicked.connect(lambda: self.AbrirVerMalla())
         self.malla.btn_agregar.clicked.connect(lambda:self.AbrirAgregarMalla())
         self.malla.btn_eliminar.clicked.connect(lambda: self.AbrirEliminarMalla())
+        self.malla.table_mallas.cellClicked.connect(lambda:self.ObtenerIDMalla())
+
+    def AbrirVerMalla(self):
+        if(self.IDMallaActual != -1):
+            self.VerMalla = VerMalla(self)
+            self.VerMalla.show()
+        else:
+            WarningMsg(self,'Informacion','Seleccione una malla')
 
     def AbrirAgregarMalla(self):
         self.AgregarMalla = AnadirMalla(self)
@@ -62,6 +76,10 @@ class malla_curricular(QMainWindow):
         for indice, ancho in enumerate((100,400,400,120,100,100),start=0):
             self.malla.table_mallas.setColumnWidth(indice,ancho)
             
+    def ObtenerIDMalla(self):
+        filaActual = self.malla.table_mallas.currentRow()
+        self.IDMallaActual = self.malla.table_mallas.item(filaActual, 0).text()
+        
     def closeEvent(self, event: QCloseEvent):
         from main import program
         self.program = program()

@@ -19,6 +19,7 @@ class AnadirMalla(QMainWindow):
         self.UI_AgregarMalla.setupUi(self)
 
         self.parent=parent
+        
         self.ListaMaterias = []
         self.filaActual = -1
 
