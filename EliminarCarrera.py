@@ -58,7 +58,6 @@ class eliminarCarrera(QtWidgets.QMainWindow):
             self.eliminarCarrera.lbl_nombreCarrera.setText("No existe dicha carrera")
 
     def EliminarCarrera(self):
-        print("entra")
         idCarrera = self.eliminarCarrera.txt_codcarrera.text()
         idCarrera = int(idCarrera)
         idFacultad = self.eliminarCarrera.cbo_Facultad.currentData()

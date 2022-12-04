@@ -5,6 +5,7 @@ from PySide2 import QtWidgets
 from conexion import BaseDeDatos
 from Vista.UI_MallaCurricular import Ui_MallaCurricular
 from AnadirMalla import AnadirMalla
+from EliminarMalla import EliminarMalla
 import sys
 
 class malla_curricular(QMainWindow):
@@ -21,10 +22,15 @@ class malla_curricular(QMainWindow):
         self.ActualizarMallas(self.QueryForActive)
 
         self.malla.btn_agregar.clicked.connect(lambda:self.AbrirAgregarMalla())
+        self.malla.btn_eliminar.clicked.connect(lambda: self.AbrirEliminarMalla())
 
     def AbrirAgregarMalla(self):
         self.AgregarMalla = AnadirMalla(self)
         self.AgregarMalla.show()
+
+    def AbrirEliminarMalla(self):
+        self.EliminarMalla = EliminarMalla(self)
+        self.EliminarMalla.show()
 
     def ActualizarMallas(self, query):
         self.malla.cbo_filterMalla.setCurrentIndex(-1)
