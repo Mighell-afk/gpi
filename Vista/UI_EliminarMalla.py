@@ -161,14 +161,14 @@ class Ui_EliminarMalla(object):
 
         self.gridLayout.addWidget(self.label_12, 2, 0, 1, 1)
 
-        self.txt_codcarrera = QLineEdit(self.gridLayoutWidget)
-        self.txt_codcarrera.setObjectName(u"txt_codcarrera")
-        self.txt_codcarrera.setEnabled(True)
-        self.txt_codcarrera.setMinimumSize(QSize(0, 0))
-        self.txt_codcarrera.setMaximumSize(QSize(295, 16777215))
-        self.txt_codcarrera.setClearButtonEnabled(False)
+        self.txt_codmalla = QLineEdit(self.gridLayoutWidget)
+        self.txt_codmalla.setObjectName(u"txt_codmalla")
+        self.txt_codmalla.setEnabled(True)
+        self.txt_codmalla.setMinimumSize(QSize(0, 0))
+        self.txt_codmalla.setMaximumSize(QSize(295, 16777215))
+        self.txt_codmalla.setClearButtonEnabled(False)
 
-        self.gridLayout.addWidget(self.txt_codcarrera, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.txt_codmalla, 0, 1, 1, 1)
 
         self.label_13 = QLabel(self.gridLayoutWidget)
         self.label_13.setObjectName(u"label_13")

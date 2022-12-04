@@ -22,7 +22,7 @@ class EliminarMalla(QMainWindow):
         self.eliminarMalla.btn_eliminar.clicked.connect(lambda: self.EliminarMalla())
 
     def ObtenerDatos(self):
-        codMalla = int(self.eliminarMalla.txt_codcarrera.text())
+        codMalla = int(self.eliminarMalla.txt_codmalla.text())
 
         sql = "select fa.nombre, ca.nombre, ma.promocion, mo.descripcion from malla_curricular ma "
         sql += "inner join carrera ca on ma.idcarrera = ca.idcarrera "
@@ -50,26 +50,35 @@ class EliminarMalla(QMainWindow):
         if (self.idMalla != -1):
             self.connect = BaseDeDatos()
             self.con = self.connect.con
-            # try:
-            sql = f"delete from detalle_prerrequisito where detalle_idmalla = {self.idMalla}"
-            
-            self.cur = self.con.cursor()
-            self.cur.execute(sql)
+            try:
+                sql = f"delete from detalle_prerrequisito where detalle_idmalla = {self.idMalla}"
+                
+                self.cur = self.con.cursor()
+                self.cur.execute(sql)
 
-            sql = f"delete from detalle_malla where idmalla_curricular = {self.idMalla}"
-            self.cur = self.con.cursor()
-            self.cur.execute(sql)
+                sql = f"delete from detalle_malla where idmalla_curricular = {self.idMalla}"
+                self.cur = self.con.cursor()
+                self.cur.execute(sql)
 
-            sql = f"delete from malla_curricular where idmalla_curricular = {self.idMalla}"
-            self.cur = self.con.cursor()
-            self.cur.execute(sql)
-            
-            self.con.commit()
+                sql = f"delete from malla_curricular where idmalla_curricular = {self.idMalla}"
+                self.cur = self.con.cursor()
+                self.cur.execute(sql)
+                
+                self.con.commit()
 
-            self.parent.ActualizarMallas(self.parent.QueryForAll)
+                self.parent.ActualizarMallas(self.parent.QueryForAll)
 
-            InfoMsg(self,'Informacion','Malla eliminada correctamente')
+                self.LimpiarCampos()
 
-            # except:
-            #     print("jajaj")
-            #     self.con.rollback()
+                InfoMsg(self,'Informacion','Malla eliminada correctamente')
+
+            except:
+                print("jajaj")
+                self.con.rollback()
+
+    def LimpiarCampos(self):
+        self.eliminarMalla.txt_codmalla.clear
+        self.eliminarMalla.lbl_facultad.clear()
+        self.eliminarMalla.lbl_carrera.clear()
+        self.eliminarMalla.lbl_promocion.clear()
+        self.eliminarMalla.lbl_modalidad.clear()
