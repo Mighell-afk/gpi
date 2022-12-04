@@ -91,7 +91,7 @@ class AnadirMalla(QMainWindow):
                     self.con.commit()
                     
         InfoMsg(self,'Informacion','Malla Cargada con exito')
-        self.parent.ActualizarMallas()
+        self.parent.ActualizarMallas(self.parent.QueryForActive)
         self.close()
 
     def AbrirAgregarPrerrequisitos(self):
