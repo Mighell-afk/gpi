@@ -53,6 +53,11 @@ class AnadirMalla(QMainWindow):
             self.ActualizarListaMaterias()
             self.filaActual = -1
 
+    def AbrirAgregarPrerrequisitos(self):
+        if self.filaActual != -1:
+            self.AgregarPrerrequisito = AnadirPrerrequisito(self)
+            self.AgregarPrerrequisito.show()
+
     def GuardarMalla(self):
         codMalla = int(self.UI_AgregarMalla.txt_cod_malla.text())
         idCarrera = self.UI_AgregarMalla.cbo_carrera.currentData()
@@ -94,11 +99,6 @@ class AnadirMalla(QMainWindow):
         InfoMsg(self,'Informacion','Malla Cargada con exito')
         self.parent.ActualizarMallas(self.parent.QueryForActive)
         self.close()
-
-    def AbrirAgregarPrerrequisitos(self):
-        if self.filaActual != -1:
-            self.AgregarPrerrequisito = AnadirPrerrequisito(self)
-            self.AgregarPrerrequisito.show()
 
     def CargarFacultad(self):
         sql = "select idfacultad,nombre from facultad"

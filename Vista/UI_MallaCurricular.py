@@ -332,14 +332,10 @@ class Ui_MallaCurricular(object):
         self.groupBox_5.setObjectName(u"groupBox_5")
         self.horizontalLayout_20 = QHBoxLayout(self.groupBox_5)
         self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
-        self.cbo_filterMalla = QComboBox(self.groupBox_5)
-        self.cbo_filterMalla.addItem("")
-        self.cbo_filterMalla.addItem("")
-        self.cbo_filterMalla.addItem("")
-        self.cbo_filterMalla.setObjectName(u"cbo_filterMalla")
-        self.cbo_filterMalla.setMinimumSize(QSize(200, 0))
+        self.txt_buscar_mallla = QLineEdit(self.groupBox_5)
+        self.txt_buscar_mallla.setObjectName(u"txt_buscar_mallla")
 
-        self.horizontalLayout_20.addWidget(self.cbo_filterMalla)
+        self.horizontalLayout_20.addWidget(self.txt_buscar_mallla)
 
 
         self.horizontalLayout_19.addWidget(self.groupBox_5)
@@ -467,22 +463,51 @@ class Ui_MallaCurricular(object):
         self.personas.setObjectName(u"personas")
         self.gridLayout_8 = QGridLayout(self.personas)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.horizontalLayout_21 = QHBoxLayout()
-        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
-        self.txt_buscar_mallla = QLineEdit(self.personas)
-        self.txt_buscar_mallla.setObjectName(u"txt_buscar_mallla")
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(10, 10, -1, -1)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_21.addWidget(self.txt_buscar_mallla)
+        self.horizontalLayout.addItem(self.horizontalSpacer)
 
-        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.rdb_activo = QRadioButton(self.personas)
+        self.rdb_activo.setObjectName(u"rdb_activo")
 
-        self.horizontalLayout_21.addItem(self.horizontalSpacer_11)
+        self.horizontalLayout.addWidget(self.rdb_activo)
+
+        self.rdb_inactivo = QRadioButton(self.personas)
+        self.rdb_inactivo.setObjectName(u"rdb_inactivo")
+
+        self.horizontalLayout.addWidget(self.rdb_inactivo)
+
+        self.rdb_all = QRadioButton(self.personas)
+        self.rdb_all.setObjectName(u"rdb_all")
+
+        self.horizontalLayout.addWidget(self.rdb_all)
+
+        self.btn_filtrar = QPushButton(self.personas)
+        self.btn_filtrar.setObjectName(u"btn_filtrar")
+        self.btn_filtrar.setMinimumSize(QSize(100, 30))
+        self.btn_filtrar.setStyleSheet(u"#pagesContainer QPushButton {\n"
+"	border: 2px solid #1F54A3;\n"
+"	border-radius: 5px;	\n"
+"	background-color: #1F54A3;\n"
+"	color:white;\n"
+"}\n"
+"#pagesContainer QPushButton:hover {\n"
+"	background-color: #286FD6;\n"
+"	border: 2px solid #286FD6;\n"
+"}\n"
+"#pagesContainer QPushButton:pressed {	\n"
+"	background-color: #2A3C57;\n"
+"	border: 2px solid #2A3C57;\n"
+"}")
+
+        self.horizontalLayout.addWidget(self.btn_filtrar)
 
 
-        self.gridLayout_8.addLayout(self.horizontalLayout_21, 0, 0, 1, 1)
+        self.gridLayout_8.addLayout(self.horizontalLayout, 4, 0, 1, 1)
 
-        self.gridLayout_13 = QGridLayout()
-        self.gridLayout_13.setObjectName(u"gridLayout_13")
         self.table_mallas = QTableWidget(self.personas)
         self.table_mallas.setObjectName(u"table_mallas")
         palette = QPalette()
@@ -528,55 +553,17 @@ class Ui_MallaCurricular(object):
 "	background-color: #ffffff;\n"
 "}")
 
-        self.gridLayout_13.addWidget(self.table_mallas, 0, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.table_mallas, 3, 0, 1, 1)
 
+        self.gridLayout_13 = QGridLayout()
+        self.gridLayout_13.setObjectName(u"gridLayout_13")
 
         self.gridLayout_8.addLayout(self.gridLayout_13, 1, 0, 1, 1)
 
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(10, 10, -1, -1)
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalLayout_21 = QHBoxLayout()
+        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
 
-        self.horizontalLayout.addItem(self.horizontalSpacer)
-
-        self.rdb_activo = QRadioButton(self.personas)
-        self.rdb_activo.setObjectName(u"rdb_activo")
-
-        self.horizontalLayout.addWidget(self.rdb_activo)
-
-        self.rdb_inactivo = QRadioButton(self.personas)
-        self.rdb_inactivo.setObjectName(u"rdb_inactivo")
-
-        self.horizontalLayout.addWidget(self.rdb_inactivo)
-
-        self.rdb_all = QRadioButton(self.personas)
-        self.rdb_all.setObjectName(u"rdb_all")
-
-        self.horizontalLayout.addWidget(self.rdb_all)
-
-        self.btn_filtrar = QPushButton(self.personas)
-        self.btn_filtrar.setObjectName(u"btn_filtrar")
-        self.btn_filtrar.setMinimumSize(QSize(100, 30))
-        self.btn_filtrar.setStyleSheet(u"#pagesContainer QPushButton {\n"
-"	border: 2px solid #1F54A3;\n"
-"	border-radius: 5px;	\n"
-"	background-color: #1F54A3;\n"
-"	color:white;\n"
-"}\n"
-"#pagesContainer QPushButton:hover {\n"
-"	background-color: #286FD6;\n"
-"	border: 2px solid #286FD6;\n"
-"}\n"
-"#pagesContainer QPushButton:pressed {	\n"
-"	background-color: #2A3C57;\n"
-"	border: 2px solid #2A3C57;\n"
-"}")
-
-        self.horizontalLayout.addWidget(self.btn_filtrar)
-
-
-        self.gridLayout_8.addLayout(self.horizontalLayout, 2, 0, 1, 1)
+        self.gridLayout_8.addLayout(self.horizontalLayout_21, 0, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.personas)
 
@@ -617,7 +604,6 @@ class Ui_MallaCurricular(object):
         self.gridLayout_10.addWidget(self.bgApp, 0, 0, 1, 1)
 
         MallaCurricular.setCentralWidget(self.styleSheet)
-        QWidget.setTabOrder(self.cbo_filterMalla, self.txt_buscar_mallla)
 
         self.retranslateUi(MallaCurricular)
 
@@ -630,10 +616,7 @@ class Ui_MallaCurricular(object):
     def retranslateUi(self, MallaCurricular):
         MallaCurricular.setWindowTitle(QCoreApplication.translate("MallaCurricular", u"Malla Curricular", None))
         self.groupBox_5.setTitle(QCoreApplication.translate("MallaCurricular", u"Buscar", None))
-        self.cbo_filterMalla.setItemText(0, QCoreApplication.translate("MallaCurricular", u"Codigo", None))
-        self.cbo_filterMalla.setItemText(1, QCoreApplication.translate("MallaCurricular", u"Nombre facultad", None))
-        self.cbo_filterMalla.setItemText(2, QCoreApplication.translate("MallaCurricular", u"Siglas", None))
-
+        self.txt_buscar_mallla.setPlaceholderText(QCoreApplication.translate("MallaCurricular", u"Buscar...", None))
         self.btn_ver_malla.setText(QCoreApplication.translate("MallaCurricular", u"Ver Malla Curricular", None))
 #if QT_CONFIG(tooltip)
         self.btn_agregar.setToolTip(QCoreApplication.translate("MallaCurricular", u"Agregar Malla Curricular", None))
@@ -648,7 +631,6 @@ class Ui_MallaCurricular(object):
 #endif // QT_CONFIG(tooltip)
         self.btn_eliminar.setText(QCoreApplication.translate("MallaCurricular", u"Eliminar", None))
         self.btn_baja.setText(QCoreApplication.translate("MallaCurricular", u"Activar/Desactivar", None))
-        self.txt_buscar_mallla.setPlaceholderText(QCoreApplication.translate("MallaCurricular", u"Buscar...", None))
         self.rdb_activo.setText(QCoreApplication.translate("MallaCurricular", u"Mostrar activos", None))
         self.rdb_inactivo.setText(QCoreApplication.translate("MallaCurricular", u"Mostrar inactivos", None))
         self.rdb_all.setText(QCoreApplication.translate("MallaCurricular", u"Mostrar todos", None))

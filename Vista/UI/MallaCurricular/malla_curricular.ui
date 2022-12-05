@@ -430,28 +430,10 @@ QComboBox QAbstractItemView {
                        </property>
                        <layout class="QHBoxLayout" name="horizontalLayout_20">
                         <item>
-                         <widget class="QComboBox" name="cbo_filterMalla">
-                          <property name="minimumSize">
-                           <size>
-                            <width>200</width>
-                            <height>0</height>
-                           </size>
+                         <widget class="QLineEdit" name="txt_buscar_mallla">
+                          <property name="placeholderText">
+                           <string>Buscar...</string>
                           </property>
-                          <item>
-                           <property name="text">
-                            <string>Codigo</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Nombre facultad</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Siglas</string>
-                           </property>
-                          </item>
                          </widget>
                         </item>
                        </layout>
@@ -652,17 +634,16 @@ QComboBox QAbstractItemView {
                      </property>
                      <widget class="QWidget" name="personas">
                       <layout class="QGridLayout" name="gridLayout_8">
-                       <item row="0" column="0">
-                        <layout class="QHBoxLayout" name="horizontalLayout_21">
+                       <item row="4" column="0">
+                        <layout class="QHBoxLayout" name="horizontalLayout">
+                         <property name="leftMargin">
+                          <number>10</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>10</number>
+                         </property>
                          <item>
-                          <widget class="QLineEdit" name="txt_buscar_mallla">
-                           <property name="placeholderText">
-                            <string>Buscar...</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <spacer name="horizontalSpacer_11">
+                          <spacer name="horizontalSpacer">
                            <property name="orientation">
                             <enum>Qt::Horizontal</enum>
                            </property>
@@ -674,10 +655,57 @@ QComboBox QAbstractItemView {
                            </property>
                           </spacer>
                          </item>
+                         <item>
+                          <widget class="QRadioButton" name="rdb_activo">
+                           <property name="text">
+                            <string>Mostrar activos</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QRadioButton" name="rdb_inactivo">
+                           <property name="text">
+                            <string>Mostrar inactivos</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QRadioButton" name="rdb_all">
+                           <property name="text">
+                            <string>Mostrar todos</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="btn_filtrar">
+                           <property name="minimumSize">
+                            <size>
+                             <width>100</width>
+                             <height>30</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">#pagesContainer QPushButton {
+	border: 2px solid #1F54A3;
+	border-radius: 5px;	
+	background-color: #1F54A3;
+	color:white;
+}
+#pagesContainer QPushButton:hover {
+	background-color: #286FD6;
+	border: 2px solid #286FD6;
+}
+#pagesContainer QPushButton:pressed {	
+	background-color: #2A3C57;
+	border: 2px solid #2A3C57;
+}</string>
+                           </property>
+                           <property name="text">
+                            <string>Filtrar</string>
+                           </property>
+                          </widget>
+                         </item>
                         </layout>
-                       </item>
-                       <item row="1" column="0">
-                        <layout class="QGridLayout" name="gridLayout_13"/>
                        </item>
                        <item row="3" column="0">
                         <widget class="QTableWidget" name="table_mallas">
@@ -887,78 +915,11 @@ QComboBox QAbstractItemView {
                          </property>
                         </widget>
                        </item>
-                       <item row="4" column="0">
-                        <layout class="QHBoxLayout" name="horizontalLayout">
-                         <property name="leftMargin">
-                          <number>10</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>10</number>
-                         </property>
-                         <item>
-                          <spacer name="horizontalSpacer">
-                           <property name="orientation">
-                            <enum>Qt::Horizontal</enum>
-                           </property>
-                           <property name="sizeHint" stdset="0">
-                            <size>
-                             <width>40</width>
-                             <height>20</height>
-                            </size>
-                           </property>
-                          </spacer>
-                         </item>
-                         <item>
-                          <widget class="QRadioButton" name="rdb_activo">
-                           <property name="text">
-                            <string>Mostrar activos</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QRadioButton" name="rdb_inactivo">
-                           <property name="text">
-                            <string>Mostrar inactivos</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QRadioButton" name="rdb_all">
-                           <property name="text">
-                            <string>Mostrar todos</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QPushButton" name="btn_filtrar">
-                           <property name="minimumSize">
-                            <size>
-                             <width>100</width>
-                             <height>30</height>
-                            </size>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">#pagesContainer QPushButton {
-	border: 2px solid #1F54A3;
-	border-radius: 5px;	
-	background-color: #1F54A3;
-	color:white;
-}
-#pagesContainer QPushButton:hover {
-	background-color: #286FD6;
-	border: 2px solid #286FD6;
-}
-#pagesContainer QPushButton:pressed {	
-	background-color: #2A3C57;
-	border: 2px solid #2A3C57;
-}</string>
-                           </property>
-                           <property name="text">
-                            <string>Filtrar</string>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
+                       <item row="1" column="0">
+                        <layout class="QGridLayout" name="gridLayout_13"/>
+                       </item>
+                       <item row="0" column="0">
+                        <layout class="QHBoxLayout" name="horizontalLayout_21"/>
                        </item>
                       </layout>
                      </widget>
@@ -1031,10 +992,6 @@ QComboBox QAbstractItemView {
    </layout>
   </widget>
  </widget>
- <tabstops>
-  <tabstop>cbo_filterMalla</tabstop>
-  <tabstop>txt_buscar_mallla</tabstop>
- </tabstops>
  <resources>
   <include location="../resources.qrc"/>
  </resources>

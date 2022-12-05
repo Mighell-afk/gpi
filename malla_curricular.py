@@ -6,7 +6,9 @@ from conexion import BaseDeDatos
 from Vista.UI_MallaCurricular import Ui_MallaCurricular
 from VerMalla import VerMalla
 from AnadirMalla import AnadirMalla
+from ModificarMalla import ModificarMalla
 from EliminarMalla import EliminarMalla
+from EstadoMalla import EstadoMalla
 import sys
 
 from eventos import *
@@ -28,8 +30,13 @@ class malla_curricular(QMainWindow):
 
         self.malla.btn_ver_malla.clicked.connect(lambda: self.AbrirVerMalla())
         self.malla.btn_agregar.clicked.connect(lambda:self.AbrirAgregarMalla())
+        self.malla.btn_modificar.clicked.connect(lambda:self.AbrirModificarMalla())
         self.malla.btn_eliminar.clicked.connect(lambda: self.AbrirEliminarMalla())
+        self.malla.btn_baja.clicked.connect(lambda: self.AbrirEstadoMalla())
         self.malla.table_mallas.cellClicked.connect(lambda:self.ObtenerIDMalla())
+        self.malla.btn_filtrar.clicked.connect(lambda:self.FilterPerQuery())
+
+        self.malla.txt_buscar_mallla.textChanged.connect(self.FilterTable)
 
     def AbrirVerMalla(self):
         if(self.IDMallaActual != -1):
@@ -42,12 +49,41 @@ class malla_curricular(QMainWindow):
         self.AgregarMalla = AnadirMalla(self)
         self.AgregarMalla.show()
 
+    def AbrirModificarMalla(self):
+        if(self.IDMallaActual != -1):
+            self.ModificarMalla = ModificarMalla(self)
+            self.ModificarMalla.show()
+        else:
+            WarningMsg(self,'Informacion','Seleccione una malla')
+
     def AbrirEliminarMalla(self):
         self.EliminarMalla = EliminarMalla(self)
         self.EliminarMalla.show()
 
+    def AbrirEstadoMalla(self):
+        self.EstadoMalla = EstadoMalla(self)
+        self.EstadoMalla.show()
+
+    def FilterPerQuery(self):
+        if self.malla.rdb_all.isChecked() == True:
+            self.ActualizarMallas(self.QueryForAll)
+
+        elif self.malla.rdb_activo.isChecked() == True:
+            self.ActualizarMallas(self.QueryForActive)
+            
+        elif self.malla.rdb_inactivo.isChecked() == True:
+            self.ActualizarMallas(self.QueryForInactive)
+
+    def FilterTable(self):
+        for i in range(self.malla.table_mallas.rowCount()):
+            for j in range(self.malla.table_mallas.columnCount()):
+                item = self.malla.table_mallas.item(i, j).text()
+                match = self.malla.txt_buscar_mallla.text().lower() not in item.lower()
+                self.malla.table_mallas.setRowHidden(i, match)
+                if not match:
+                    break
+
     def ActualizarMallas(self, query):
-        self.malla.cbo_filterMalla.setCurrentIndex(-1)
         header=["Codigo", "Carrera", "Facultad", "Modalidad", "Promocion", "Fecha Inicio"]
 
         self.connect = BaseDeDatos()

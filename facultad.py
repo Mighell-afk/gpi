@@ -19,8 +19,6 @@ class facultad(QtWidgets.QMainWindow):
         self.facultad = Ui_Facultad()
         self.facultad.setupUi(self)
         
-
-
         self.QueryForAll      = "select idfacultad,nombre,siglas from facultad"
         self.QueryForActive   = "select idfacultad,nombre,siglas from facultad where activo = 1"
         self.QueryForInactive = "select idfacultad,nombre,siglas from facultad where activo = 0"
