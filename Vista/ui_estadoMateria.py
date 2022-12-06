@@ -17,7 +17,7 @@ from Vista import resources
 class Ui_EstadoMateria(object):
     def setupUi(self, EstadoFacultad):
         if not EstadoFacultad.objectName():
-            EstadoFacultad.setObjectName(u"EstadoFacultad")
+            EstadoFacultad.setObjectName(u"EstadoMateria")
         EstadoFacultad.setWindowModality(Qt.ApplicationModal)
         EstadoFacultad.resize(572, 270)
         EstadoFacultad.setMinimumSize(QSize(500, 270))
@@ -186,10 +186,10 @@ class Ui_EstadoMateria(object):
     # setupUi
 
     def retranslateUi(self, EstadoFacultad):
-        EstadoFacultad.setWindowTitle(QCoreApplication.translate("EstadoFacultad", u"Estado Facultad", None))
+        EstadoFacultad.setWindowTitle(QCoreApplication.translate("EstadoFacultad", u"Estado Materia", None))
         self.label.setText(QCoreApplication.translate("EstadoFacultad", u"Activar/Desactivar Materia", None))
         self.btn_buscar.setText("")
-        self.label_11.setText(QCoreApplication.translate("EstadoFacultad", u"Codigo Facultad", None))
+        self.label_11.setText(QCoreApplication.translate("EstadoFacultad", u"Codigo Materia", None))
         self.lbl_nombremateria.setText("")
         self.label_12.setText(QCoreApplication.translate("EstadoFacultad", u"Descripcion", None))
         self.btn_cambiarEstado.setText(QCoreApplication.translate("EstadoFacultad", u"Activar/Desactivar", None))

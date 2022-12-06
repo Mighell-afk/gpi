@@ -3,7 +3,7 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 from PySide2 import QtWidgets
 import sys
-from conexion import BaseDeDatos
+from conexion import *
 from Vista.ui_agregar_materia import Ui_CargarMateria
 from eventos import *
 
@@ -34,26 +34,46 @@ class AddMate(QtWidgets.QMainWindow):
             Data = DatosFacultad[i][1] +" - "+ DatosFacultad[i][2]
             id = DatosFacultad[i][0]
             self.addmateria.cbo_facultad.addItem(Data,str(id))
-        #self.addmateria.cbo_facultad.currentIndexChanged.connect(self.printconsole)
- 
-    # def printconsole(self,index):
-    #     print("Producto:",self.addmateria.cbo_facultad.itemText(index),"id: ",self.addmateria.cbo_facultad.itemData(index))
-        
+
+
+
     def AgregarMateria(self):
+        
+        if self.ValidarDatos():
+            try:
+                codMateria = self.addmateria.txt_codfacultad.text()
+                Facu_ID = int(self.addmateria.cbo_facultad.currentData())
+                NombreMateria=self.addmateria.txt_siglas.text()
+
+                self.cur.execute(f"INSERT INTO Materia(idMateria,idfacultad,Nombre) VALUES({codMateria},{Facu_ID},'{NombreMateria}') ")
+                self.con.commit()
+                self.parent.ActualizarMateria(self.parent.QueryForActive)
+                self.LimpiarCampos()
+                InfoMsg(self,'Informacion','Materia Cargada con exito')
+            except mysql.connector.IntegrityError:
+                CritiCalMsg(self,'Error','Codigo de la materia ya esta en uso')
+
+
+    def ValidarDatos(self):
         codMateria = self.addmateria.txt_codfacultad.text()
-        Facu_ID = int(self.addmateria.cbo_facultad.currentData())
-        # print(id)
         NombreMateria=self.addmateria.txt_siglas.text()
+        
+        if (not codMateria.isnumeric()) or codMateria == "":
+            WarningMsg(self,'Atencion','Ingrese un numero en el codigo de materia')
+            return False
+        
+        if self.addmateria.cbo_facultad.currentIndex() < 0:
+            WarningMsg(self,'Atencion','Seleccione alguna facultad')
+            return False
 
-        self.cur.execute(f"INSERT INTO Materia(idMateria,idfacultad,Nombre) VALUES({codMateria},{Facu_ID},'{NombreMateria}') ")
-        self.con.commit()
-        self.parent.ActualizarMateria(self.parent.QueryForActive)
-        #self.LimpiarCampos()
-        InfoMsg(self,'Informacion','Facultad Cargada con exito')
+        if NombreMateria == "":
+            WarningMsg(self,'Atencion','Ingrese un nombre de materia')
+            return False
+        
+        return True
 
-
-
-
+    def LimpiarCampos(self):
+        pass
 
 
 if __name__ == '__main__':

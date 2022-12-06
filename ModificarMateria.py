@@ -22,23 +22,26 @@ class ModificarMateria(QtWidgets.QMainWindow):
 
     
     def ObtenerDatos(self):
-        global DatosMateria
-        self.connect = BaseDeDatos()
-        self.con = self.connect.con
-        self.cur = self.con.cursor()
-        id = self.modmateria.txt_codMateria.text()
-        # self.cur.execute(f"SELECT idMateria,Facultad_ID,Nombre FROM materia where idMateria = {int(id)} and Activo = 1;")
-        self.cur.execute(f"select idMateria,mt.Nombre as Materia,fa.nombre as facultad from materia mt INNER JOIN facultad fa on (mt.idfacultad = fa.idfacultad) WHERE idMateria ={int(id)} and mt.Activo =1; ")
-        DatosMateria = self.cur.fetchall()
-   
-        if DatosMateria != []:
-            self.modmateria.txt_nombreMateria.setText(str(DatosMateria[0][1]))
-            self.CargarFacultad()
-            self.HabilitarCampos(True)
-        else:
-            self.modmateria.txt_nombreMateria.setText("Materia con ese codigo no existe")
+        if self.ValidarFacultad():
+            global DatosMateria
+            self.connect = BaseDeDatos()
+            self.con = self.connect.con
+            self.cur = self.con.cursor()
+            id = self.modmateria.txt_codMateria.text()
+            # self.cur.execute(f"SELECT idMateria,Facultad_ID,Nombre FROM materia where idMateria = {int(id)} and Activo = 1;")
+            self.cur.execute(f"select idMateria,mt.Nombre as Materia,fa.nombre as facultad from materia mt INNER JOIN facultad fa on (mt.idfacultad = fa.idfacultad) WHERE idMateria ={int(id)} and mt.Activo =1; ")
+            DatosMateria = self.cur.fetchall()
+    
+            if DatosMateria != []:
+                self.modmateria.txt_nombreMateria.setText(str(DatosMateria[0][1]))
+                self.CargarFacultad()
+                self.HabilitarCampos(True)
+            else:
+                WarningMsg(self,"Atencion","Codigo de la materia no existe")
+                
 
     def CargarFacultad(self):
+        
         global id
         self.connect = BaseDeDatos()
         self.con = self.connect.con
@@ -62,15 +65,28 @@ class ModificarMateria(QtWidgets.QMainWindow):
         self.modmateria.cbo_Facultad.setCurrentIndex(index)
         
 
+    def ValidarFacultad(self):
+        codMateria = self.modmateria.txt_codMateria.text()
+    
+        if not codMateria.isnumeric() or codMateria == "":
+            WarningMsg(self,"Atencion","Codigo de la materia no es numerico")
+            return False
+
+        return True
+
     def ActualizarDatos(self):
         
         FacuID = self.modmateria.cbo_Facultad.currentData()
         NombreMate = self.modmateria.txt_nombreMateria.text()
-        self.cur.execute(f" UPDATE materia SET idfacultad = {FacuID}, Nombre = '{NombreMate}' WHERE idMateria = {int(DatosMateria[0][0])} ")
-        self.con.commit()
-        self.LimpiarCampos()
-        InfoMsg(self,'Informacion','Materia Modificada con exito')
-        self.parent.ActualizarMateria(self.parent.QueryForActive)
+        if NombreMate != "":
+            self.cur.execute(f" UPDATE materia SET idfacultad = {FacuID}, Nombre = '{NombreMate}' WHERE idMateria = {int(DatosMateria[0][0])} ")
+            self.con.commit()
+            self.LimpiarCampos()
+            InfoMsg(self,'Informacion','Materia Modificada con exito')
+            self.parent.ActualizarMateria(self.parent.QueryForActive)
+        else:
+            WarningMsg(self,'Atencion','Ingrese el nombre de la materia')
+
 
     def LimpiarCampos(self):
         self.HabilitarCampos(False)

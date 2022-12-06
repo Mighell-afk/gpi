@@ -20,26 +20,38 @@ class estmate(QtWidgets.QMainWindow):
 
     def ObtenerDato(self):
         global DatosMate
-        codMate = int(self.estfacu.txt_codmateria.text())
-     
-        self.QueryForAll      = f"select * from materia where idMateria = {codMate}"
-        self.connect = BaseDeDatos()
-        self.con = self.connect.con
-        self.cur = self.con.cursor()
-        self.cur.execute(self.QueryForAll)
-        DatosMate = self.cur.fetchall()
-        if(DatosMate != []):
-            if DatosMate[0][3] == 1:
-               EstActual =  "Activo" 
+        codMate = self.estfacu.txt_codmateria.text()
+        if self.ValidarDatos():
+            self.QueryForAll      = f"select * from materia where idMateria = {int(codMate)}"
+            self.connect = BaseDeDatos()
+            self.con = self.connect.con
+            self.cur = self.con.cursor()
+            self.cur.execute(self.QueryForAll)
+            DatosMate = self.cur.fetchall()
+            if(DatosMate != []):
+                if DatosMate[0][3] == 1:
+                    EstActual =  "Activo" 
+                else:
+                    EstActual = "Inactivo"
+
+                # print(DatosMate[0][1], " - ",EstActual)
+                self.estfacu.lbl_nombremateria.setText(DatosMate[0][2] + " - " + EstActual)
+                self.estfacu.btn_cambiarEstado.setEnabled(True)
             else:
-                EstActual = "Inactivo"
+                WarningMsg(self,"Atencion","No existe materia con ese codigo")    
+                
 
-            # print(DatosMate[0][1], " - ",EstActual)
-            self.estfacu.lbl_nombremateria.setText(DatosMate[0][2] + " - " + EstActual)
-            self.estfacu.btn_cambiarEstado.setEnabled(True)
-        else:
-            self.estfacu.lbl_nombremateria.setText("No existe dicha materia" )
-
+    def ValidarDatos(self):
+        codMateria = self.estfacu.txt_codmateria.text()
+        if not codMateria.isnumeric():
+            WarningMsg(self,"Atencion","Ingrese un numero en el codigo de materia")    
+            return False
+        if codMateria == "":
+            WarningMsg(self,"Atencion","Ingrese un numero en el codigo de materia")    
+            return False
+        
+        return True
+            
 
 
     def CambiarEstado(self):

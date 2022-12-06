@@ -39,21 +39,32 @@ class EliminarMateria(QtWidgets.QMainWindow):
 
 
     def ObtenerDato(self):
+        if self.ValidarDatos():
+            codMateria = self.elimate.txt_codmateria.text()
+            self.QueryForAll      = f"select idMateria,nombre from Materia where idMateria = {int(codMateria)}"
+            self.connect = BaseDeDatos()
+            self.con = self.connect.con
+            self.cur = self.con.cursor()
+            self.cur.execute(self.QueryForAll)
+            DatosMate = self.cur.fetchall()
+            
+            if(DatosMate != []):
+                self.elimate.lbl_nombremateria.setText(   DatosMate[0][1])
+                self.elimate.btn_eliminar.setEnabled(True)
+            else:
+                WarningMsg(self,"Atencion","No existe materia con ese codigo")    
+
+
+    def ValidarDatos(self):
+        codMateria = self.elimate.txt_codmateria.text()
+        if not codMateria.isnumeric():
+            WarningMsg(self,"Atencion","Ingrese un numero en el codigo de materia")    
+            return False
+        if codMateria == "":
+            WarningMsg(self,"Atencion","Ingrese un numero en el codigo de materia")    
+            return False
         
-        codMateria = int(self.elimate.txt_codmateria.text())
-     
-        self.QueryForAll      = f"select idMateria,nombre from Materia where idMateria = {codMateria}"
-        self.connect = BaseDeDatos()
-        self.con = self.connect.con
-        self.cur = self.con.cursor()
-        self.cur.execute(self.QueryForAll)
-        DatosMate = self.cur.fetchall()
-        
-        if(DatosMate != []):
-            self.elimate.lbl_nombremateria.setText(   DatosMate[0][1])
-            self.elimate.btn_eliminar.setEnabled(True)
-        else:
-            self.elimate.lbl_nombremateria.setText("No existe dicha Materia" )
+        return True
             
 
 
